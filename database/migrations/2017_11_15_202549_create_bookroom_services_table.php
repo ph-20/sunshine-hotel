@@ -13,7 +13,7 @@ class CreateBookroomServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bookroom_services', function (Blueprint $table) {
+        Schema::create('book_room_services', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('unit');
             $table->integer('book_room_id')->unsigned();

@@ -15,10 +15,10 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('check_in_date');
-            $table->date('check_out_date');
+            $table->date('check_in');
+            $table->date('check_out');
             $table->tinyInteger('status');
-            $table->string('booking_code');
+            $table->string('code');
             $table->decimal('total');
             $table->integer('user_id')->unsigned();
             $table->integer('promotion_id')->unsigned();
