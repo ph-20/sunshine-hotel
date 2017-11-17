@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookroomServicesTable extends Migration
+class CreateBookRoomServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,7 +23,7 @@ class CreateBookroomServicesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('service_id')->references('id')
-                ->on('service_hotels')
+                ->on('services')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServiceHotelsTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateServiceHotelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_hotels', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('service_name');
-            $table->string('service_price');
+            $table->string('name');
+            $table->string('price');
             $table->text('description')->nullable();
             $table->timestamps();
         });
