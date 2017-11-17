@@ -19,7 +19,7 @@ class CreateBookingsTable extends Migration
             $table->date('check_out');
             $table->tinyInteger('status');
             $table->string('code');
-            $table->decimal('total');
+            $table->integer('total');
             $table->integer('user_id')->unsigned();
             $table->integer('promotion_id')->unsigned();
             $table->foreign('user_id')->references('id')
