@@ -29,7 +29,9 @@ class RoomsController extends Controller
     public function postEdit(Request $request, $id)
     {
         $room = Room::findOrFail($id);
-        $this->validate($request, [
+        $this->validate(
+            $request,
+            [
             'txtName' => 'required|unique:rooms,name|min:3|max:100',
             'txtPrice' => 'required|min:6|max:100',
             'txtDescription' => 'required|min:3|max:100',
@@ -47,7 +49,8 @@ class RoomsController extends Controller
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
-            ]);
+            ]
+        );
         $room->name = $request->txtName;
         $room->price = $request->txtPrice;
         $room->description = $request->txtDescription;
@@ -82,7 +85,9 @@ class RoomsController extends Controller
 
     public function postCreate(Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request,
+            [
             'txtName' => 'required|unique:rooms,name|min:3|max:100',
             'txtPrice' => 'required|min:6|max:100',
             'txtDescription' => 'required|min:3|max:100',
@@ -100,7 +105,8 @@ class RoomsController extends Controller
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
-            ]);
+            ]
+        );
         $room = new Room;
         $room->name = $request->txtName;
         $room->price = $request->txtPrice;
