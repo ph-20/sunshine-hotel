@@ -36,7 +36,8 @@ class RoomTypesController extends Controller
                 'description.required' => 'Bạn chưa nhập mô tả cho tên loại phòng',
                 'description.min' => 'Tên mô tả phải có độ dài từ 3 đến 100 ký tự',
                 'description.max' => 'Tên mô tả phải có độ dài từ 3 đến 100 ký tự'
-            ]);
+            ]
+        );
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
@@ -59,8 +60,8 @@ class RoomTypesController extends Controller
                 'name.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
                 'name.max' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
                 'name.unique' => 'Tên loại phòng đã tồn tại'
-
-            ]);
+            ]
+        );
         $roomTypes = new RoomType;
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;

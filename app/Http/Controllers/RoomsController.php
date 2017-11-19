@@ -47,7 +47,8 @@ class RoomsController extends Controller
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
-            ]);
+            ]
+        );
         $room->name = $request->txtName;
         $room->price = $request->txtPrice;
         $room->description = $request->txtDescription;
@@ -100,7 +101,8 @@ class RoomsController extends Controller
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
-            ]);
+            ]
+        );
         $room = new Room;
         $room->name = $request->txtName;
         $room->price = $request->txtPrice;
