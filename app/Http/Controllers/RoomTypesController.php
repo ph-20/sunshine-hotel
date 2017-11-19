@@ -25,11 +25,10 @@ class RoomTypesController extends Controller
     public function postEdit(Request $request, $id)
     {
         $roomTypes = RoomType::findOrFail($id);
-        $this->validate($request,
-            [
-                'name' => 'required|min:3|max:100',
-                'description' => 'required|min:3|max:100'
-            ],
+        $this->validate($request, [
+            'name' => 'required|min:3|max:100',
+            'description' => 'required|min:3|max:100'
+        ],
             [
                 'name.required' => 'Bạn chưa nhập tên loại phòng',
                 'name.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -41,7 +40,6 @@ class RoomTypesController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-
         return redirect('admin/roomtype/show')->with('message', 'Sửa thành công');
     }
 
@@ -53,10 +51,9 @@ class RoomTypesController extends Controller
 
     public function postCreate(Request $request)
     {
-        $this->validate($request,
-            [
-                'name' => 'required|min:3|max:100|unique:room_types,name'
-            ],
+        $this->validate($request, [
+            'name' => 'required|min:3|max:100|unique:room_types,name'
+        ],
             [
                 'name.required' => 'Bạn chưa nhập tên loại phòng',
                 'name.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -68,7 +65,6 @@ class RoomTypesController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-
         return redirect('admin/roomtype/show')->with('message', 'Thêm thành công');
     }
 
@@ -77,7 +73,6 @@ class RoomTypesController extends Controller
     {
         $roomTypes = RoomType::find($id);
         $roomTypes->delete();
-
         return redirect('admin/roomtype/show')->with('message', 'Đã xóa thành công');
     }
 }

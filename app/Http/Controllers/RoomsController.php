@@ -29,13 +29,12 @@ class RoomsController extends Controller
     public function postEdit(Request $request, $id)
     {
         $room = Room::findOrFail($id);
-        $this->validate($request,
-            [
-                'txtName' => 'required|unique:rooms,name|min:3|max:100',
-                'txtPrice' => 'required|min:6|max:100',
-                'txtDescription' => 'required|min:3|max:100',
-                'txtAmount' => 'required'
-            ],
+        $this->validate($request, [
+            'txtName' => 'required|unique:rooms,name|min:3|max:100',
+            'txtPrice' => 'required|min:6|max:100',
+            'txtDescription' => 'required|min:3|max:100',
+            'txtAmount' => 'required'
+        ],
             [
                 'txtName.required' => 'Bạn chưa nhập tên phòng',
                 'txtName.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -83,13 +82,12 @@ class RoomsController extends Controller
 
     public function postCreate(Request $request)
     {
-        $this->validate($request,
-            [
-                'txtName' => 'required|unique:rooms,name|min:3|max:100',
-                'txtPrice' => 'required|min:6|max:100',
-                'txtDescription' => 'required|min:3|max:100',
-                'txtAmount' => 'required'
-            ],
+        $this->validate($request, [
+            'txtName' => 'required|unique:rooms,name|min:3|max:100',
+            'txtPrice' => 'required|min:6|max:100',
+            'txtDescription' => 'required|min:3|max:100',
+            'txtAmount' => 'required'
+        ],
             [
                 'txtName.required' => 'Bạn chưa nhập tên phòng',
                 'txtName.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -135,7 +133,6 @@ class RoomsController extends Controller
     {
         $room = Room::find($id);
         $room->delete();
-
         return redirect('admin/room/show')->with('message', 'Đã xóa thành công');
     }
 }
