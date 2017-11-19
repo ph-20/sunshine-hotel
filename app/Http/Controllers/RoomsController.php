@@ -34,7 +34,7 @@ class RoomsController extends Controller
             'txtPrice' => 'required|min:6|max:100',
             'txtDescription' => 'required|min:3|max:100',
             'txtAmount' => 'required'
-        ],
+            ],
             [
                 'txtName.required' => 'Bạn chưa nhập tên phòng',
                 'txtName.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -87,7 +87,7 @@ class RoomsController extends Controller
             'txtPrice' => 'required|min:6|max:100',
             'txtDescription' => 'required|min:3|max:100',
             'txtAmount' => 'required'
-        ],
+            ],
             [
                 'txtName.required' => 'Bạn chưa nhập tên phòng',
                 'txtName.min' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
