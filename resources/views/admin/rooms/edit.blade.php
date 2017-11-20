@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <label>Old Image 1 </label>
                         <br>
-                        <img class="img-thumbnail" width="200px" src="{{asset('img/'.$room->image1)}}">
+                        <img class="img-thumbnail" width="200px" src="{{asset($room->image1) }}">
                     </div>
                     <label>Image 2</label>
                     <input type="file" name="image2"><br>

@@ -45,13 +45,13 @@
                         <td>{{$rs->description}}</td>
                         <td>{{$rs->amount_people}}</td>
                         <td>
-                            <img width="100px" src="img/{{$rs->image1}}" alt="">
+                            <img width="100px" src="{{asset($rs->image1) }}" alt="">
                         </td>
                         <td>
-                            <img width="100px" src="img/{{$rs->image2}}" alt="">
+                            <img width="100px" src="{{asset($rs->image2) }}" alt="">
                         </td>
                         <td>
-                            <img width="100px" src="img/{{$rs->image3}}" alt="">
+                            <img width="100px" src="{{asset($rs->image3) }}" alt="">
                         </td>
                         <td>
                             @if($rs->room_type_id == 1)
