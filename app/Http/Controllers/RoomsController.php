@@ -63,8 +63,7 @@ class RoomsController extends Controller
         $room->amount_people = $request->txtAmount;
         $room->status = $request->rdoStatus;
         $room->room_type_id = $request->roomTypeid;
-        if ($request->hasFile('image1'))
-        {
+        if ($request->hasFile('image1')) {
             $fileName = $request->image1->store('public/img/roomtype');
             $room->image1 = Storage::url($fileName);
         }
@@ -116,8 +115,7 @@ class RoomsController extends Controller
         $room->amount_people = $request->txtAmount;
         $room->status = $request->rdoStatus;
         $room->room_type_id = $request->roomTypeid;
-        if ($request->hasFile('image1'))
-        {
+        if ($request->hasFile('image1')) {
             $fileName = $request->image1->store('public/img/roomtype');
             $room->image1 = Storage::url($fileName);
         }
