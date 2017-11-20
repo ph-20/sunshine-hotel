@@ -53,7 +53,7 @@ class RoomsController extends Controller
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'image1.required' => 'Bạn chưa chọn hình ảnh',
                 'image1.image' => 'Ảnh bạn chọn phải có đuôi jpeg,png,jpg,gif',
-                'image1.max' => 'Tên ảnh có độ dại tối đa ko quá 2048 ký tự',
+                'image1.max' => 'File ảnh không quá 2m',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
             ]
         );
@@ -104,7 +104,7 @@ class RoomsController extends Controller
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'image1.required' => 'Bạn chưa chọn hình ảnh',
                 'image1.image' => 'Ảnh bạn chọn phải có đuôi jpeg,png,jpg,gif',
-                'image1.max' => 'Tên ảnh có độ dại tối đa ko quá 2048 ký tự',
+                'image1.max' => 'File ảnh không quá 2m',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
             ]
         );
