@@ -46,4 +46,3 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', 'ServicesController@getDelete');
     });
 });
-
