@@ -21,17 +21,12 @@
 </head>
 
 <body>
-
-<div id="wrapper">
-
-
  @include('admin.layouts.header')
-
-       @yield('content')
-
-    <!-- /#page-wrapper -->
-
-</div>
+ <div id="page-wrapper">
+     <section class="content-header">
+         @yield('content')
+     </section>
+ </div>
 <!-- /#wrapper -->
 
 <!-- Core Scripts - Include with every page -->

@@ -35,4 +35,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', 'RoomTypesController@postCreate');
         Route::get('delete/{id}', 'RoomTypesController@getDelete');
     });
+    Route::group(['prefix' => 'manageruser'], function () {
+        Route::get('/', 'ManagerUserController@home');
+        Route::get('index', 'ManagerUserController@index');
+        Route::get('edit/{id}', 'ManagerUserController@edit');
+        Route::put('{id}', 'ManagerUserController@udpate');
+    });
 });
