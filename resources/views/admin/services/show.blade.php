@@ -15,7 +15,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr align="center">
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Description</th>
@@ -30,7 +30,8 @@
                         <td>{{$sv->name}}</td>
                         <td>{{$sv->price}}</td>
                         <td style="width: 700px;">{{$sv->description}}</td>
-                        <td class="center"><i class="fa fa-trash-o fa-fw"></i><a
+                        <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
+                        fa-fw"></i><a
                                     href="admin/service/delete/{{$sv->id}}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
                                     href="admin/service/edit/{{$sv->id}}}">Edit</a></td>

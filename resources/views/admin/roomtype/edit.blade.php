@@ -24,7 +24,7 @@
                     <label>Description</label>
                     <textarea class="form-control" rows="3" name="description">{{$roomTypes->description}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Edit Room</button>
+                <button type="submit" class="btn btn-success">Edit Room</button>
                 <button type="reset" class="btn btn-default">Reset</button>
             </form>
         </div>

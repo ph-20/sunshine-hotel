@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input class="form-control" name="txtPrice" value="{{$service->price}}"
+                    <input class="form-control" type="number" name="txtPrice" value="{{$service->price}}"
                            placeholder="Please Enter Price"/>
                 </div>
                 <div class="form-group">
@@ -30,7 +30,7 @@
                     <textarea class="form-control" rows="3" style="height: 200px;"
                               name="txtDescription">{{$service->description}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Edit Service</button>
+                <button type="submit" class="btn btn-success">Edit Service</button>
                 <button type="reset" class="btn btn-default">Reset</button>
             </form>
         </div>

@@ -15,7 +15,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr align="center">
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Action</th>
@@ -28,7 +28,8 @@
                         <td>{{$rt->id}}</td>
                         <td>{{$rt->name}}</td>
                         <td>{{$rt->description}}</td>
-                        <td class="center"><i class="fa fa-trash-o fa-fw"></i><a
+                        <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
+                        fa-fw"></i><a
                                     href="admin/roomtype/delete/{{$rt->id}}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
                                     href="admin/roomtype/edit/{{$rt->id}}">Edit</a></td>

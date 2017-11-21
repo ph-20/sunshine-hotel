@@ -34,8 +34,8 @@
                            placeholder="Please Enter Room Name"/>
                 </div>
                 <div class="form-group">
-                    <label>Price</label>
-                    <input class="form-control" name="txtPrice" value="{{$room->price}}"
+                    <label>Price VND</label>
+                    <input class="form-control" type="number" name="txtPrice" value="{{$room->price}}"
                            placeholder="Please Enter Price"/>
                 </div>
                 <div class="form-group">
@@ -71,7 +71,7 @@
                         Phòng
                     </label>
                 </div>
-                <button type="submit" class="btn btn-default">Edit Room</button>
+                <button type="submit" class="btn btn-success">Edit Room</button>
                 <button type="reset" class="btn btn-default">Reset</button>
             </form>
         </div>
