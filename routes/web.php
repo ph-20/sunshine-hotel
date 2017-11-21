@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    $pass = '123456';
+    echo 'Mat khau la:'. $pass. '<br>';
+    echo 'Mat khau la:'. bcrypt($pass);
+    exit;
     return view('welcome');
 });
 
@@ -20,25 +24,26 @@ Auth::routes();
 // Route Group Admin
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'room'], function () {
-        Route::get('show', 'RoomsController@getShow');
-        Route::get('edit/{id}', 'RoomsController@getEdit');
-        Route::post('edit/{id}', 'RoomsController@postEdit');
-        Route::get('create', 'RoomsController@getCreate');
-        Route::post('create', 'RoomsController@postCreate');
-        Route::get('delete/{id}', 'RoomsController@getDelete');
+        Route::get('show', 'RoomController@getShow');
+        Route::get('edit/{id}', 'RoomController@getEdit');
+        Route::post('edit/{id}', 'RoomController@postEdit');
+        Route::get('create', 'RoomController@getCreate');
+        Route::post('create', 'RoomController@postCreate');
+        Route::get('delete/{id}', 'RoomController@getDelete');
     });
     Route::group(['prefix' => 'roomtype'], function () {
-        Route::get('show', 'RoomTypesController@getShow');
-        Route::get('edit/{id}', 'RoomTypesController@getEdit');
-        Route::post('edit/{id}', 'RoomTypesController@postEdit');
-        Route::get('create', 'RoomTypesController@getCreate');
-        Route::post('create', 'RoomTypesController@postCreate');
-        Route::get('delete/{id}', 'RoomTypesController@getDelete');
+        Route::get('show', 'RoomTypeController@getShow');
+        Route::get('edit/{id}', 'RoomTypeController@getEdit');
+        Route::post('edit/{id}', 'RoomTypeController@postEdit');
+        Route::get('create', 'RoomTypeController@getCreate');
+        Route::post('create', 'RoomTypeController@postCreate');
+        Route::get('delete/{id}', 'RoomTypeController@getDelete');
     });
-    Route::group(['prefix' => 'manageruser'], function () {
-        Route::get('/', 'ManagerUserController@home');
-        Route::get('index', 'ManagerUserController@index');
-        Route::get('edit/{id}', 'ManagerUserController@edit');
-        Route::put('{id}', 'ManagerUserController@udpate');
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/', ['as' => 'users.index', 'uses' => 'UserController@home']);
+        Route::get('index', ['as' => 'users.index', 'uses' => 'UserController@index']);
+        Route::get('edit/{id}', ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+        Route::post('{user}', ['as' => 'users.update', 'uses' => 'UserController@update']);
+        Route::delete('{user}', ['as' => 'users.destroy', 'uses' => 'UserController@delete']);
     });
 });
