@@ -22,7 +22,7 @@ Auth::routes();
 // Route Group Admin
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'room'], function () {
-        Route::get('show', 'RoomsController@getShow');
+        Route::get('list', 'RoomsController@getList');
         Route::get('edit/{id}', 'RoomsController@getEdit');
         Route::post('edit/{id}', 'RoomsController@postEdit');
         Route::get('create', 'RoomsController@getCreate');
@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', 'RoomsController@getDelete');
     });
     Route::group(['prefix' => 'roomtype'], function () {
-        Route::get('show', 'RoomTypesController@getShow');
+        Route::get('list', 'RoomTypesController@getList');
         Route::get('edit/{id}', 'RoomTypesController@getEdit');
         Route::post('edit/{id}', 'RoomTypesController@postEdit');
         Route::get('create', 'RoomTypesController@getCreate');
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', 'RoomTypesController@getDelete');
     });
     Route::group(['prefix' => 'service'], function () {
-        Route::get('show', 'ServicesController@getShow');
+        Route::get('list', 'ServicesController@getList');
         Route::get('edit/{id}', 'ServicesController@getEdit');
         Route::post('edit/{id}', 'ServicesController@postEdit');
         Route::get('create', 'ServicesController@getCreate');

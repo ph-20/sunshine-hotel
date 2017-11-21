@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
-use Illuminate\Support\Facades\Validator;
+
 class ServicesController extends Controller
 {
-    // Show
-    public function getShow()
+    // List
+    public function getList()
     {
         $service = Service::all();
-        return view('admin.services.show', compact('service'));
+        return view('admin.services.list', compact('service'));
     }
 
     // Edit
@@ -28,7 +28,7 @@ class ServicesController extends Controller
             $request,
             [
                 'txtName' => 'required|min:3|max:100',
-                'txtPrice' => 'required|max:100|numeric',
+                'txtPrice' => 'required|min:50000|numeric',
                 'txtDescription' => 'required|min:3|max:2000'
             ],
             [
@@ -36,7 +36,7 @@ class ServicesController extends Controller
                 'txtName.min' => 'Tên dịch vụ độ dài tối thiểu là 3 ký tự',
                 'txtName.max' => 'Tên dịch vụ độ dài tối đa là 100 ký tự.',
                 'txtPrice.required' => 'Bạn chưa nhập giá tiền cho dịch vụ',
-                'txtPrice.max' => 'Giá tiền phải có độ dài dưới 100 ký tự',
+                'txtPrice.min' => 'Giá tiền phải lớn hơn 50.000vnd',
                 'txtPrice.numeric'=>'Bạn phải nhập giá tiền kiểu số',
                 'txtDescription.required' => 'Bạn chưa nhập mô tả dịch vụ',
                 'txtDescription.min' => 'Mô tả dịch vụ phải có độ dài từ 3 đến 2000 ký tự',
@@ -47,7 +47,7 @@ class ServicesController extends Controller
         $service->price = $request->txtPrice;
         $service->description = $request->txtDescription;
         $service->save();
-        return redirect('admin/service/show')->with('message', 'Sửa dịch vụ thành công');
+        return redirect('admin/service/list')->with('message', 'Sửa dịch vụ thành công');
     }
 
     // Create
@@ -62,7 +62,7 @@ class ServicesController extends Controller
             $request,
             [
                 'txtName' => 'required|unique:services,name|min:3|max:100',
-                'txtPrice' => 'required|max:100|numeric',
+                'txtPrice' => 'required|min:50000|numeric',
                 'txtDescription' => 'required|min:3|max:2000'
             ],
             [
@@ -71,7 +71,7 @@ class ServicesController extends Controller
                 'txtName.max' => 'Tên dịch vụ độ dài tối đa là 100 ký tự.',
                 'txtName.unique' => 'Tên dịch vụ đã tồn tại',
                 'txtPrice.required' => 'Bạn chưa nhập giá tiền cho dịch vụ',
-                'txtPrice.max' => 'Giá tiền phải có độ dài dưới 100 ký tự',
+                'txtPrice.min' => 'Giá tiền phải lớn hơn 50.000vnd',
                 'txtPrice.numeric'=>'Bạn phải nhập giá tiền kiểu số',
                 'txtDescription.required' => 'Bạn chưa nhập mô tả dịch vụ',
                 'txtDescription.min' => 'Mô tả dịch vụ phải có độ dài từ 3 đến 2000 ký tự',
@@ -83,7 +83,7 @@ class ServicesController extends Controller
         $service->price = $request->txtPrice;
         $service->description = $request->txtDescription;
         $service->save();
-        return redirect('admin/service/show')->with('message', 'Thêm dịch vụ thành công');
+        return redirect('admin/service/list')->with('message', 'Thêm dịch vụ thành công');
     }
 
     // Delete
@@ -92,6 +92,6 @@ class ServicesController extends Controller
         $service = Service::find($id);
         $service->delete();
 
-        return redirect('admin/service/show')->with('message', 'Đã xóa thành công');
+        return redirect('admin/service/list')->with('message', 'Đã xóa thành công');
     }
 }

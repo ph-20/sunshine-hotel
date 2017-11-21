@@ -16,7 +16,7 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Room<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/room/show" class="fa fa-list">&nbsp; All Room</a>
+                        <a href="admin/room/list" class="fa fa-list">&nbsp; All Room</a>
                     </li>
                     <li>
                         <a href="admin/room/create" class="fa fa-plus-square">&nbsp; Add Room</a>
@@ -28,7 +28,7 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Room Type<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/roomtype/show" class="fa fa-list">&nbsp; All Room Type</a>
+                        <a href="admin/roomtype/list" class="fa fa-list">&nbsp; All Room Type</a>
                     </li>
                     <li>
                         <a href="admin/roomtype/create" class="fa fa-plus-square">&nbsp; Add Room Type</a>
@@ -39,7 +39,7 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Service<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/service/show" class="fa fa-list">&nbsp; All Service</a>
+                        <a href="admin/service/list" class="fa fa-list">&nbsp; All Service</a>
                     </li>
                     <li>
                         <a href="admin/service/create" class="fa fa-plus-square">&nbsp; Add Service</a>
