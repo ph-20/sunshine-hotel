@@ -35,6 +35,17 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#"><i class="fa fa-bars"></i>&nbsp; Service<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/service/show" class="fa fa-list">&nbsp; All Service</a>
+                    </li>
+                    <li>
+                        <a href="admin/service/create" class="fa fa-plus-square">&nbsp; Add Service</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>

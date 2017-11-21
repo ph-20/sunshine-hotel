@@ -1,5 +1,7 @@
 <?php
 
+use App\Service;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +37,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', 'RoomTypesController@postCreate');
         Route::get('delete/{id}', 'RoomTypesController@getDelete');
     });
+    Route::group(['prefix' => 'service'], function () {
+        Route::get('show', 'ServicesController@getShow');
+        Route::get('edit/{id}', 'ServicesController@getEdit');
+        Route::post('edit/{id}', 'ServicesController@postEdit');
+        Route::get('create', 'ServicesController@getCreate');
+        Route::post('create', 'ServicesController@postCreate');
+        Route::get('delete/{id}', 'ServicesController@getDelete');
+    });
 });
+
