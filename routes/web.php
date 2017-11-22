@@ -35,7 +35,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', ['as' => 'users.index', 'uses' => 'UserController@home']);
         Route::get('index', ['as' => 'users.index', 'uses' => 'UserController@index']);
         Route::get('changepassword/{id}', ['as' => 'users.changepassword', 'uses' => 'UserController@changepassword']);
-        Route::post('updatepassword/{user}', ['as' => 'users.updatepassword', 'uses' => 'UserController@updatepassword']);
+        Route::post('updatepass/{user}', ['as' => 'users.updatepass', 'uses' => 'UserController@updatepassword']);
         Route::get('edit/{id}', ['as' => 'users.edit', 'uses' => 'UserController@edit']);
         Route::post('{user}', ['as' => 'users.update', 'uses' => 'UserController@update']);
         Route::delete('{user}', ['as' => 'users.destroy', 'uses' => 'UserController@delete']);
