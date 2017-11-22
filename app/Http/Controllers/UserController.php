@@ -28,7 +28,7 @@ class UserController extends Controller
         return view('admin.users.changepassword', compact('user'));
     }
 
-    public function updatepassword(User $user,CheckPasswordUserRequest $request)
+    public function updatepassword(User $user, CheckPasswordUserRequest $request)
     {
         $data = $request->all();
         $data = Input::all();
