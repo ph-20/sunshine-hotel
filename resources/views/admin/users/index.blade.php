@@ -17,6 +17,7 @@
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Phone Number</th>
+                                <th>Active</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -28,14 +29,17 @@
                                     <td>{{$user->email}}</td>
                                     <td>@if ($user->role == 0) Khach Hang @else Admin @endif</td>
                                     <td>{{$user->phone_number}}</td>
-                                    <td>
-                                        <a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit"> Edit</i></a>
-                                        -
+                                    <td>@if ($user->active == 0) True @else False @endif</td>
+                                    <td><a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit">
+                                                Edit</i></a>
+                                        <a href="{{ route('users.changepassword', $user->id) }}"><i class="fa fa-cog">
+                                                Change Password</i></a>
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <i class="glyphicon glyphicon-trash text-danger"></i>
-                                            <a href="javascript:void(0);" onclick="if(confirm('Are you sure delete?')){$(this).parent().submit();}">Delete</a>
+                                            <a href="javascript:void(0);"
+                                               onclick="if(confirm('Are you sure delete?')){$(this).parent().submit();}">Delete</a>
                                         </form>
                                     </td>
                                 </tr>

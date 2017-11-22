@@ -17,16 +17,21 @@
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="AdminTheme/css/sb-admin.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
- @include('admin.layouts.header')
- <div id="page-wrapper">
-     <section class="content-header">
-         @yield('content')
-     </section>
- </div>
+{!! Toastr::render() !!}
+@include('admin.layouts.header')
+<div id="page-wrapper">
+    <section class="content-header">
+        @yield('content')
+    </section>
+</div>
 <!-- /#wrapper -->
 
 <!-- Core Scripts - Include with every page -->
@@ -43,7 +48,7 @@
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#dataTables-example').dataTable();
     });
 </script>
