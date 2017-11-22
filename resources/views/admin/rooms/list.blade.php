@@ -30,9 +30,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i = 1;?>
                 @foreach($room as $rs)
                     <tr>
-                        <td>{{$rs->id}}</td>
+                        <td>{{$i++}}</td>
                         <td>{{$rs->name}}</td>
                         <td>{{$rs->price}}</td>
                         <td>

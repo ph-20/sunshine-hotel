@@ -23,9 +23,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i = 1;?>
                 @foreach($roomTypes as $rt)
                     <tr>
-                        <td>{{$rt->id}}</td>
+                        <td>{{$i++}}</td>
                         <td>{{$rt->name}}</td>
                         <td>{{$rt->description}}</td>
                         <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o

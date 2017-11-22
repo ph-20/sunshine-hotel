@@ -24,9 +24,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i = 1;?>
                 @foreach($service as $sv)
                     <tr>
-                        <td>{{$sv->id}}</td>
+                        <td>{{$i++}}</td>
                         <td>{{$sv->name}}</td>
                         <td>{{$sv->price}}</td>
                         <td style="width: 700px;">{{$sv->description}}</td>
