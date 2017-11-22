@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    $pass = '123456';
-    echo 'Mat khau la:'. $pass. '<br>';
-    echo 'Mat khau la:'. bcrypt($pass);
-    exit;
-    return view('welcome');
-});
-
 Auth::routes();
 
 // Route Group Admin

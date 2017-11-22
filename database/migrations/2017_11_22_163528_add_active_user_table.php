@@ -14,7 +14,7 @@ class AddActiveUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('active');
+            $table->boolean('active');
 
         });
     }
@@ -27,7 +27,7 @@ class AddActiveUserTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('active');
+            $table->dropColumn('active')->nullable();
         });
     }
 }
