@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="admin/room/list">Admin - Hotel Manager</a>
+        <a class="navbar-brand" href="{{route('rooms.index')}}">Admin - Hotel Manager</a>
     </div>
     <!-- /.navbar-header -->
 

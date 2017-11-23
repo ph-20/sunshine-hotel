@@ -15,7 +15,7 @@
             <form action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label>Rooms Type</label>
+                    <label>Rooms Type <b style="color: red">*</b></label>
                     <select class="form-control" name="roomTypeid">
                         @foreach($roomType as $rt)
                             <option
@@ -28,23 +28,23 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Room Name</label>
-                    <input class="form-control" name="txtName" value="{{$room->name}}"
+                    <label>Room Name <b style="color: red">*</b></label>
+                    <input class="form-control" name="txtName" value="{{old('txtName', $room->name)}}"
                            placeholder="Please Enter Room Name"/>
                 </div>
                 <div class="form-group">
-                    <label>Price VND</label>
-                    <input class="form-control" type="number" name="txtPrice" value="{{$room->price}}"
+                    <label>Price VND <b style="color: red">*</b></label>
+                    <input class="form-control" type="number" name="txtPrice" value="{{old('txtPrice', $room->price)}}"
                            placeholder="Please Enter Price"/>
                 </div>
                 <div class="form-group">
-                    <label>Amount People</label>
-                    <input class="form-control" name="txtAmount" value="{{$room->amount_people}}"
+                    <label>Amount People <b style="color: red">*</b></label>
+                    <input class="form-control" name="txtAmount" value="{{old('txtAmount', $room->amount_people)}}"
                            placeholder="Please Enter Amount People"/>
                 </div>
                 <div class="form-group">
-                    <label>Image 1</label>
-                    <input type="file" name="image1"><br>
+                    <label>Image 1 <b style="color: red">*</b></label>
+                    <input type="file" name="image1" value="{{old('image1', $room->image1)}}"><br>
                     <div class="form-group">
                         <label>Old Image 1 </label>
                         <br>
@@ -57,7 +57,8 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" rows="3" name="txtDescription">{{$room->description}}</textarea>
+                    <textarea class="form-control" rows="3" name="txtDescription">{{old('txtDescription', $room->description)
+                    }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Status</label>

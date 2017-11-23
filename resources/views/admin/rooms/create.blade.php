@@ -15,7 +15,7 @@
             <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label>Rooms Type</label>
+                    <label>Rooms Type <b style="color: red">*</b></label>
                     <select class="form-control" name="roomTypeid">
                         @foreach($roomType as $rt)
                             <option value="{{$rt->id}}">{{$rt->name}}</option>
@@ -23,22 +23,22 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Room Name</label>
+                    <label>Room Name <b style="color: red">*</b></label>
                     <input class="form-control" name="txtName" value="{{old('txtName')}}"
                            placeholder="Please Enter Room Name"/>
                 </div>
                 <div class="form-group">
-                    <label>Price VND</label>
+                    <label>Price VND <b style="color: red">*</b></label>
                     <input class="form-control" type="number" name="txtPrice" value="{{old('txtPrice')}}"
                            placeholder="Please Enter Price"/>
                 </div>
                 <div class="form-group">
-                    <label>Amount People</label>
+                    <label>Amount People <b style="color: red">*</b></label>
                     <input class="form-control" name="txtAmount" value="{{old('txtAmount')}}"
                            placeholder="Please Enter Amount People"/>
                 </div>
                 <div class="form-group">
-                    <label>Image 1</label>
+                    <label>Image 1 <b style="color: red">*</b></label>
                     <input type="file" name="image1"><br>
                     <label>Image 2</label>
                     <input type="file" name="image2"><br>
