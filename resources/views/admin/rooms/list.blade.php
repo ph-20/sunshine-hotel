@@ -12,7 +12,7 @@
         </div>
         <div class="col-lg-12">
             @include('admin.messages.success')
-            <table class="table table-bordered table-striped table-hover">
+            <table class="table table-bordered table-striped table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
                     <th>No</th>
@@ -20,7 +20,7 @@
                     <th>Price VND</th>
                     <th>Status</th>
                     <th>Description</th>
-                    <th>Amount People Id</th>
+                    <th>Amount</th>
                     <th>Image 1</th>
                     <th>Image 2</th>
                     <th>Image 3</th>
@@ -35,16 +35,18 @@
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{$rs->name}}</td>
-                        <td>{{$rs->price}}</td>
-                        <td>
+                        <td>{{number_format($rs->price,0,",",".") }}</td>
+                        <td style="width: 70px;">
                             @if($rs->status == 0)
-                                {{'Phòng Trống'}}
+                                {{'Trả phòng'}}
+                            @elseif($rs->status == 1)
+                                {{'Đã đặt'}}
                             @else()
-                                {{'Phòng đã đặt'}}
+                                {{'Đang ở'}}
                             @endif
                         </td>
                         <td>{{$rs->description}}</td>
-                        <td>{{$rs->amount_people}}</td>
+                        <td style="width: 70px">{{$rs->amount_people}}</td>
                         <td>
                             <img width="100px" src="{{asset($rs->image1) }}" alt="">
                         </td>

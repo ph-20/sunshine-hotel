@@ -12,7 +12,7 @@
         </div>
         <div class="col-lg-12">
             @include('admin.messages.success')
-            <table class="table table-bordered table-striped table-hover">
+            <table class="table table-bordered table-striped table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
                     <th>No</th>
@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{$sv->name}}</td>
-                        <td>{{$sv->price}}</td>
+                        <td>{{number_format($sv->price,0,",",".") }}</td>
                         <td style="width: 700px;">{{$sv->description}}</td>
                         <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
                         fa-fw"></i><a

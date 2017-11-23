@@ -63,12 +63,15 @@
                 <div class="form-group">
                     <label>Status</label>
                     <label class="radio-inline">
-                        <input name="rdoStatus" value="0" @if($room->status == 0)   checked @endif type="radio">Phòng
-                        Trống
+                        <input name="rdoStatus" value="0" @if($room->status == 0)   checked @endif type="radio">Trả
+                        phòng
                     </label>
                     <label class="radio-inline">
-                        <input name="rdoStatus" value="1" @if($room->status == 1)   checked @endif type="radio">Đã Đặt
-                        Phòng
+                        <input name="rdoStatus" value="1" @if($room->status == 1)   checked @endif type="radio">Đặt
+                        phòng
+                    </label>
+                    <label class="radio-inline">
+                        <input name="rdoStatus" value="2" @if($room->status == 2)   checked @endif type="radio">Đang ở
                     </label>
                 </div>
                 <button type="submit" class="btn btn-success">Edit Room</button>

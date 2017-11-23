@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Room Type
+                <h1 class="page-header">Service
                     <small>List</small>
                 </h1>
             </div>
@@ -16,30 +16,30 @@
                 <thead>
                 <tr align="center">
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th>Service Id</th>
+                    <th>Book Room Id</th>
+                    <th>Unit</th>
                     <th>Action</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $i = 1;?>
-                @foreach($roomTypes as $rt)
+                @foreach($bookRoomService as $brs)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$rt->name}}</td>
-                        <td>{{$rt->description}}</td>
+                        <td>{{$brs->service_id}}</td>
+                        <td>{{$brs->book_room_id}}</td>
+                        <td></td>
                         <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
                         fa-fw"></i><a
-                                    href="admin/roomtype/delete/{{$rt->id}}">Delete</a></td>
+                                    href="admin/service/delete/{{$brs->id}}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
-                                    href="admin/roomtype/edit/{{$rt->id}}">Edit</a></td>
+                                    href="admin/service/edit/{{$brs->id}}}">Edit</a></td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
-
-        {{--End row--}}
     </div>
 @endsection

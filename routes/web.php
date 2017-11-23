@@ -21,6 +21,7 @@ Auth::routes();
 
 // Route Group Admin
 Route::group(['prefix' => 'admin'], function () {
+    // Route Group Room
     Route::group(['prefix' => 'room'], function () {
         Route::get('list', 'RoomsController@getList');
         Route::get('edit/{id}', 'RoomsController@getEdit');
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', 'RoomsController@postCreate');
         Route::get('delete/{id}', 'RoomsController@getDelete');
     });
+    // Route Group Room Type
     Route::group(['prefix' => 'roomtype'], function () {
         Route::get('list', 'RoomTypesController@getList');
         Route::get('edit/{id}', 'RoomTypesController@getEdit');
@@ -37,11 +39,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', 'RoomTypesController@postCreate');
         Route::get('delete/{id}', 'RoomTypesController@getDelete');
     });
+    // Route Group Service
     Route::group(['prefix' => 'service'], function () {
         Route::get('list', 'ServicesController@getList');
         Route::get('edit/{id}', 'ServicesController@getEdit');
         Route::post('edit/{id}', 'ServicesController@postEdit');
         Route::get('create', 'ServicesController@getCreate');
+        Route::post('create', 'ServicesController@postCreate');
+        Route::get('service', 'ServicesController@getCreate');
         Route::post('create', 'ServicesController@postCreate');
         Route::get('delete/{id}', 'ServicesController@getDelete');
     });

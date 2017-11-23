@@ -36,7 +36,7 @@ class RoomsController extends Controller
                 'txtName' => 'required|min:3|max:100',
                 'txtPrice' => 'required|min:50000|numeric',
                 'txtDescription' => 'required|min:3|max:100',
-                'image1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image1' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'image2' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'image3' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'txtAmount' => 'required'
@@ -51,7 +51,6 @@ class RoomsController extends Controller
                 'txtDescription.required' => 'Bạn chưa nhập mô tả phòng',
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
-                'image1.required' => 'Bạn chưa chọn hình ảnh',
                 'image1.image' => 'Ảnh bạn chọn phải có đuôi jpeg,png,jpg,gif',
                 'image1.max' => 'File ảnh không quá 2m',
                 'txtAmount' => 'Bạn chưa nhập số người của phòng'
