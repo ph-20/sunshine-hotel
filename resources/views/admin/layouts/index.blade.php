@@ -21,19 +21,13 @@
 </head>
 
 <body>
-
-<div id="wrapper">
-
-
- @include('admin.layouts.header')
-
-       @yield('content')
-
-    <!-- /#page-wrapper -->
-
+@include('admin.layouts.header')
+<div id="page-wrapper">
+    <section class="content-header">
+        @yield('content')
+    </section>
 </div>
 <!-- /#wrapper -->
-
 <!-- Core Scripts - Include with every page -->
 <script src="AdminTheme/js/jquery-1.10.2.js"></script>
 <script src="AdminTheme/js/bootstrap.min.js"></script>
@@ -48,7 +42,7 @@
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#dataTables-example').dataTable();
     });
 </script>

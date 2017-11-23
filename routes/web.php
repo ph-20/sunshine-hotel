@@ -35,4 +35,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', 'RoomTypesController@postCreate');
         Route::get('delete/{id}', 'RoomTypesController@getDelete');
     });
+    Route::group(['prefix' => 'promotions'], function () {
+        Route::get('/', ['as' => 'promotions.index', 'uses' => 'PromotionController@home']);
+        Route::get('index', ['as' => 'promotions.index', 'uses' => 'PromotionController@index']);
+        Route::get('create', ['as' => 'promotions.create', 'uses' => 'PromotionController@create']);
+        Route::post('/', ['as' => 'promotions.save', 'uses' => 'PromotionController@save']);
+        Route::delete('{promotion}', ['as' => 'promotions.destroy', 'uses' => 'PromotionController@delete']);
+    });
 });
