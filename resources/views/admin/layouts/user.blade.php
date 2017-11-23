@@ -54,8 +54,8 @@
 <div class="form-gourp">
     {!! Form::label('active', 'Active') !!}
     {!! Form::select('active', array(
-    '0'=>'True',
-    '1'=>'False',
+    '0'=>'Đang Hoạt Động',
+    '1'=>'Khóa',
     ), $user->active, ['class'=>'form-control']) !!}
 </div><br>
 {!! Form::submit('Save User', ['class' => 'btn btn-primary']) !!}

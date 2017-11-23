@@ -38,6 +38,9 @@
             <li>
                 <a href="{{route('users.index')}}"><i class="fa fa-address-book-o"></i>&nbsp; Users</a>
             </li>
+            <li>
+                <a href="{{route('promotions.index')}}"><i class="fa fa-money"></i>&nbsp; Promotions</a>
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>

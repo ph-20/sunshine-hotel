@@ -8,6 +8,7 @@ class Promotion extends Model
 {
     //
     protected $table = 'promotions';
+    protected $fillable = ['code', 'discount', 'start_date', 'end_date'];
 
     public function bookings()
     {
