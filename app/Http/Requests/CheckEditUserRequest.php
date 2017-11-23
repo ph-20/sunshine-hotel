@@ -23,11 +23,12 @@ class CheckEditUserRequest extends FormRequest
      */
     public function rules()
     {
+        $user = $this->route('user');
         return [
             'last_name' => 'required|string|min:1|max:20',
             'first_name' => 'required|string|min:1|max:20',
-            'phone_number' => 'required|integer',
-            'email' => 'required|string|min:1|max:100',
+            'phone_number' => 'required|string|min:2|max:20',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'address' => 'string|min:2|max:60',
         ];
     }
