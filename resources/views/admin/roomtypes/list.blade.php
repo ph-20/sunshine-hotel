@@ -1,7 +1,6 @@
 @extends('admin.layouts.index')
 
 @section('content')
-    <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Room Type
@@ -30,9 +29,9 @@
                         <td>{{$rt->name}}</td>
                         <td>{{$rt->description}}</td>
                         <td class="center"><i class="fa fa-trash-o fa-fw"></i><a
-                                    href="admin/roomtypes/delete/{{$rt->id}}" onclick="return confirm('Bạn muốn xóa không?');">Delete</a></td>
+                                    href="{{ route('rooms.destroy', $rt->id) }}" onclick="return confirm('Bạn muốn xóa không?');">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
-                                    href="admin/roomtypes/edit/{{$rt->id}}">Edit</a></td>
+                                    href="{{ route('rooms.edit', $rt->id) }}">Edit</a></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -40,5 +39,4 @@
         </div>
 
         {{--End row--}}
-    </div>
 @endsection

@@ -1,7 +1,6 @@
 @extends('admin.layouts.index')
 
 @section('content')
-    <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Edit Room
@@ -13,7 +12,7 @@
         <div class="col-lg-7" style="padding-bottom:120px">
             @include('admin.messages.errors')
             @include('admin.messages.success')
-            <form action="admin/room/edit/{{$room->id}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>Rooms Type</label>
@@ -80,5 +79,4 @@
         </div>
 
         {{--End row--}}
-    </div>
 @endsection

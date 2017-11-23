@@ -39,10 +39,10 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Service<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/service/list" class="fa fa-list">&nbsp; All Service</a>
+                        <a href="{{ route('services.index') }}" class="fa fa-list">&nbsp; All Service</a>
                     </li>
                     <li>
-                        <a href="admin/service/create" class="fa fa-plus-square">&nbsp; Add Service</a>
+                        <a href="{{ route('services.create') }}" class="fa fa-plus-square">&nbsp; Add Service</a>
                     </li>
                 </ul>
             </li>
