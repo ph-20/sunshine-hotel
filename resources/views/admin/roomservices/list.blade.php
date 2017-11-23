@@ -31,11 +31,11 @@
                         <td>{{$brs->service_id}}</td>
                         <td>{{$brs->book_room_id}}</td>
                         <td></td>
-                        <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
-                        fa-fw"></i><a
-                                    href="admin/service/delete/{{$brs->id}}">Delete</a></td>
+                        <td class="center"><i class="fa fa-trash-o
+                        fa-fw"></i><a onclick="return confirm('Bạn muốn xóa không?');"
+                                    href="admin/services/delete/{{$brs->id}}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
-                                    href="admin/service/edit/{{$brs->id}}}">Edit</a></td>
+                                    href="admin/services/edit/{{$brs->id}}}">Edit</a></td>
                     </tr>
                 @endforeach
                 </tbody>

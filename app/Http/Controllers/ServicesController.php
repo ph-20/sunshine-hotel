@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Service;
 
-class ServicesController extends Controller
+class ServiceController extends Controller
 {
     // List
     public function getList()

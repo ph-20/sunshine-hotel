@@ -10,7 +10,7 @@ use Validator;
 use Cart;
 use Illuminate\Support\Facades\Storage;
 
-class RoomsController extends Controller
+class RoomController extends Controller
 {
     // List
     public function getList()

@@ -65,11 +65,11 @@
                                 {{'Family'}}
                             @endif
                         </td>
-                        <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
-                        fa-fw"></i><a
-                                    href="admin/room/delete/{{$rs->id}}">Delete</a></td>
+                        <td class="center"><i class="fa fa-trash-o
+                        fa-fw"></i><a onclick="return confirm('Bạn muốn xóa không?');"
+                                    href="admin/rooms/delete/{{$rs->id}}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
-                                    href="admin/room/edit/{{$rs->id}}}">Edit</a></td>
+                                    href="admin/rooms/edit/{{$rs->id}}}">Edit</a></td>
                     </tr>
                 @endforeach
                 </tbody>

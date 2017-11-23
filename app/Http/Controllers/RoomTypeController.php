@@ -6,20 +6,20 @@ use Illuminate\Http\Request;
 use App\RoomType;
 use Validator;
 
-class RoomTypesController extends Controller
+class RoomTypeController extends Controller
 {
     // List
     public function getList()
     {
         $roomTypes = RoomType::all();
-        return view('admin.roomtype.list', compact('roomTypes'));
+        return view('admin.roomtypes.list', compact('roomTypes'));
     }
 
     // Edit
     public function getEdit($id)
     {
         $roomTypes = RoomType::find($id);
-        return view('admin.roomtype.edit', compact('roomTypes'));
+        return view('admin.roomtypes.edit', compact('roomTypes'));
     }
 
     public function postEdit(Request $request, $id)
@@ -43,13 +43,13 @@ class RoomTypesController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-        return redirect('admin/roomtype/list')->with('message', 'Sửa thành công');
+        return redirect('admin/roomtypes/list')->with('message', 'Sửa thành công');
     }
 
     // Create
     public function getCreate()
     {
-        return view('admin.roomtype.create');
+        return view('admin.roomtypes.create');
     }
 
     public function postCreate(Request $request)
@@ -70,7 +70,7 @@ class RoomTypesController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-        return redirect('admin/roomtype/list')->with('message', 'Thêm thành công');
+        return redirect('admin/roomtypes/list')->with('message', 'Thêm thành công');
     }
 
     // Delete
@@ -78,6 +78,6 @@ class RoomTypesController extends Controller
     {
         $roomTypes = RoomType::find($id);
         $roomTypes->delete();
-        return redirect('admin/roomtype/list')->with('message', 'Đã xóa thành công');
+        return redirect('admin/roomtypes/list')->with('message', 'Đã xóa thành công');
     }
 }
