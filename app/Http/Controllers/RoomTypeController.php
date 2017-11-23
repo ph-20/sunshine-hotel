@@ -43,7 +43,7 @@ class RoomTypeController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-        return redirect('admin/roomtypes/list')->with('message', 'Sửa thành công');
+        return redirect()->route('roomtypes.index')->with('message', 'Sửa thành công');
     }
 
     // Create
@@ -70,7 +70,7 @@ class RoomTypeController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-        return redirect('admin/roomtypes/list')->with('message', 'Thêm thành công');
+        return redirect()->route('roomtypes.index')->with('message', 'Thêm thành công');
     }
 
     // Delete
@@ -78,6 +78,6 @@ class RoomTypeController extends Controller
     {
         $roomTypes = RoomType::find($id);
         $roomTypes->delete();
-        return redirect('admin/roomtypes/list')->with('message', 'Đã xóa thành công');
+        return redirect()->route('roomtypes.index')->with('message', 'Đã xóa thành công');
     }
 }

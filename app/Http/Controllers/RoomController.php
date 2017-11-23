@@ -67,7 +67,7 @@ class RoomController extends Controller
             $room->image1 = Storage::url($fileName);
         }
         $room->save();
-        return redirect('admin/room/list')->with('message', 'Sửa phòng thành công');
+        return redirect()->route('rooms.index')->with('message', 'Sửa phòng thành công');
     }
 
     // Create
@@ -119,7 +119,7 @@ class RoomController extends Controller
             $room->image1 = Storage::url($fileName);
         }
         $room->save();
-        return redirect('admin/room/list')->with('message', 'Thêm phòng thành công');
+        return redirect()->route('rooms.index')->with('message', 'Thêm phòng thành công');
     }
 
     // Delete
@@ -127,6 +127,6 @@ class RoomController extends Controller
     {
         $room = Room::find($id);
         $room->delete();
-        return redirect('admin/room/list')->with('message', 'Đã xóa thành công');
+        return redirect()->route('rooms.index')->with('message', 'Đã xóa thành công');
     }
 }

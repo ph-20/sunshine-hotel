@@ -47,7 +47,7 @@ class ServiceController extends Controller
         $service->price = $request->txtPrice;
         $service->description = $request->txtDescription;
         $service->save();
-        return redirect('admin/service/list')->with('message', 'Sửa dịch vụ thành công');
+        return redirect()->route('services.index')->with('message', 'Sửa dịch vụ thành công');
     }
 
     // Create
@@ -83,7 +83,7 @@ class ServiceController extends Controller
         $service->price = $request->txtPrice;
         $service->description = $request->txtDescription;
         $service->save();
-        return redirect('admin/service/list')->with('message', 'Thêm dịch vụ thành công');
+        return redirect()->route('services.index')->with('message', 'Thêm dịch vụ thành công');
     }
 
     // Delete
@@ -92,6 +92,6 @@ class ServiceController extends Controller
         $service = Service::find($id);
         $service->delete();
 
-        return redirect('admin/service/list')->with('message', 'Đã xóa thành công');
+        return redirect()->route('services.index')->with('message', 'Đã xóa thành công');
     }
 }
