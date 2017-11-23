@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CheckCreatPromotionRequest;
-use App\Http\Requests\CheckEditPromotionRequest;
 use App\Promotion;
 use Toastr;
 
