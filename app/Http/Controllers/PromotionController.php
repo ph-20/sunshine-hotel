@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CheckCreatPromotionRequest;
 use App\Http\Requests\CheckEditPromotionRequest;
 use App\Promotion;
+use Toastr;
 
 class PromotionController extends Controller
 {
@@ -29,14 +30,14 @@ class PromotionController extends Controller
     {
         $data = $request->all();
         $promotion = Promotion::create($data);
-        //        Toastr::info('Delete Thanh Cong');
+        Toastr::info('Delete Thanh Cong');
         return redirect()->route('promotions.index');
     }
 
     public function delete(Promotion $promotion)
     {
         $promotion->delete();
-//        Toastr::info('Delete Thanh Cong');
+        Toastr::info('Delete Thanh Cong');
         return redirect()->route('promotions.index');
     }
 }
