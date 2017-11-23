@@ -135,7 +135,7 @@ body { overflow-x: hidden; }
 .tm-gray-bg { background-color: #E5E5E5; }
 .tm-home-section-1 {
 	position: relative;
-	top: -50px;
+	bottom: -10px;
 }
 .form-control {	border-radius: 0; }
 .form-control:focus {
