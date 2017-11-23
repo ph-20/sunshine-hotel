@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration
             $table->date('check_in');
             $table->date('check_out');
             $table->tinyInteger('status');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->integer('total');
             $table->integer('user_id')->unsigned();
             $table->integer('promotion_id')->unsigned();

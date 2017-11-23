@@ -29,8 +29,8 @@
                            placeholder="Please Enter Room Name"/>
                 </div>
                 <div class="form-group">
-                    <label>Price</label>
-                    <input class="form-control" name="txtPrice" value="{{old('txtPrice')}}"
+                    <label>Price VND</label>
+                    <input class="form-control" type="number" name="txtPrice" value="{{old('txtPrice')}}"
                            placeholder="Please Enter Price"/>
                 </div>
                 <div class="form-group">
@@ -40,11 +40,11 @@
                 </div>
                 <div class="form-group">
                     <label>Image 1</label>
-                    <input type="file" class="form-control" name="image1"><br>
+                    <input type="file" name="image1"><br>
                     <label>Image 2</label>
-                    <input type="file" class="form-control" name="image2"><br>
+                    <input type="file" name="image2"><br>
                     <label>Image 3</label>
-                    <input type="file" class="form-control" name="image3"><br>
+                    <input type="file" name="image3"><br>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
@@ -53,13 +53,16 @@
                 <div class="form-group">
                     <label>Status</label>
                     <label class="radio-inline">
-                        <input name="rdoStatus" value="0" checked="" type="radio">Phòng Trống
+                        <input name="rdoStatus" value="0" checked="" type="radio">Trả phòng
                     </label>
                     <label class="radio-inline">
-                        <input name="rdoStatus" value="1" type="radio">Đã Đặt Phòng
+                        <input name="rdoStatus" value="1" type="radio">Đặt phòng
+                    </label>
+                    <label class="radio-inline">
+                        <input name="rdoStatus" value="2" type="radio">Đang ở
                     </label>
                 </div>
-                <button type="submit" class="btn btn-default">Add Room</button>
+                <button type="submit" class="btn btn-success">Add Room</button>
                 <button type="reset" class="btn btn-default">Reset</button>
             </form>
         </div>

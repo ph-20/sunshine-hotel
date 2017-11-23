@@ -23,7 +23,7 @@
                     <label>Description</label>
                     <textarea class="form-control" rows="3" name="description"></textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Add Room</button>
+                <button type="submit" class="btn btn-success">Add Room</button>
                 <button type="reset" class="btn btn-default">Reset</button>
             </form>
         </div>

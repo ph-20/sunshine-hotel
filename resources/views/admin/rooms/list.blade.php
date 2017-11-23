@@ -12,15 +12,15 @@
         </div>
         <div class="col-lg-12">
             @include('admin.messages.success')
-            <table class="table table-bordered table-striped table-hover">
+            <table class="table table-bordered table-striped table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Name</th>
-                    <th>Price</th>
+                    <th>Price VND</th>
                     <th>Status</th>
                     <th>Description</th>
-                    <th>Amount People Id</th>
+                    <th>Amount</th>
                     <th>Image 1</th>
                     <th>Image 2</th>
                     <th>Image 3</th>
@@ -30,20 +30,23 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i = 1;?>
                 @foreach($room as $rs)
                     <tr>
-                        <td>{{$rs->id}}</td>
+                        <td>{{$i++}}</td>
                         <td>{{$rs->name}}</td>
-                        <td>{{$rs->price}}</td>
-                        <td>
+                        <td>{{number_format($rs->price,0,",",".") }}</td>
+                        <td style="width: 70px;">
                             @if($rs->status == 0)
-                                {{'Phòng Trống'}}
+                                {{'Trả phòng'}}
+                            @elseif($rs->status == 1)
+                                {{'Đã đặt'}}
                             @else()
-                                {{'Phòng đã đặt'}}
+                                {{'Đang ở'}}
                             @endif
                         </td>
                         <td>{{$rs->description}}</td>
-                        <td>{{$rs->amount_people}}</td>
+                        <td style="width: 70px">{{$rs->amount_people}}</td>
                         <td>
                             <img width="100px" src="{{asset($rs->image1) }}" alt="">
                         </td>
@@ -62,7 +65,8 @@
                                 {{'Family'}}
                             @endif
                         </td>
-                        <td class="center"><i class="fa fa-trash-o fa-fw"></i><a
+                        <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
+                        fa-fw"></i><a
                                     href="admin/room/delete/{{$rs->id}}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
                                     href="admin/room/edit/{{$rs->id}}}">Edit</a></td>

@@ -8,11 +8,11 @@ use Validator;
 
 class RoomTypesController extends Controller
 {
-    // Show
-    public function getShow()
+    // List
+    public function getList()
     {
         $roomTypes = RoomType::all();
-        return view('admin.roomtype.show', compact('roomTypes'));
+        return view('admin.roomtype.list', compact('roomTypes'));
     }
 
     // Edit
@@ -43,7 +43,7 @@ class RoomTypesController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-        return redirect('admin/roomtype/show')->with('message', 'Sửa thành công');
+        return redirect('admin/roomtype/list')->with('message', 'Sửa thành công');
     }
 
     // Create
@@ -70,7 +70,7 @@ class RoomTypesController extends Controller
         $roomTypes->name = $request->name;
         $roomTypes->description = $request->description;
         $roomTypes->save();
-        return redirect('admin/roomtype/show')->with('message', 'Thêm thành công');
+        return redirect('admin/roomtype/list')->with('message', 'Thêm thành công');
     }
 
     // Delete
@@ -78,6 +78,6 @@ class RoomTypesController extends Controller
     {
         $roomTypes = RoomType::find($id);
         $roomTypes->delete();
-        return redirect('admin/roomtype/show')->with('message', 'Đã xóa thành công');
+        return redirect('admin/roomtype/list')->with('message', 'Đã xóa thành công');
     }
 }

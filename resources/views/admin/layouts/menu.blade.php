@@ -16,7 +16,7 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Room<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/room/show" class="fa fa-list">&nbsp; All Room</a>
+                        <a href="admin/room/list" class="fa fa-list">&nbsp; All Room</a>
                     </li>
                     <li>
                         <a href="admin/room/create" class="fa fa-plus-square">&nbsp; Add Room</a>
@@ -28,7 +28,7 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Room Type<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/roomtype/show" class="fa fa-list">&nbsp; All Room Type</a>
+                        <a href="admin/roomtype/list" class="fa fa-list">&nbsp; All Room Type</a>
                     </li>
                     <li>
                         <a href="admin/roomtype/create" class="fa fa-plus-square">&nbsp; Add Room Type</a>
@@ -36,10 +36,26 @@
                 </ul>
             </li>
             <li>
-                <a href="{{route('users.index')}}"><i class="fa fa-address-book-o"></i>&nbsp; Users</a>
+                <a href="#"><i class="fa fa-bars"></i>&nbsp; Service<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/service/list" class="fa fa-list">&nbsp; All Service</a>
+                    </li>
+                    <li>
+                        <a href="admin/service/create" class="fa fa-plus-square">&nbsp; Add Service</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="{{route('promotions.index')}}"><i class="fa fa-money"></i>&nbsp; Promotions</a>
+                <a href="#"><i class="fa fa-bars"></i>&nbsp; Room Service<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/roomservice/list" class="fa fa-list">&nbsp; All Room Service</a>
+                    </li>
+                    <li>
+                        <a href="admin/roomservice/create" class="fa fa-plus-square">&nbsp; Add Room Service</a>
+                    </li>
+                </ul>
             </li>
         </ul>
         <!-- /#side-menu -->
