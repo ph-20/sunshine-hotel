@@ -30,7 +30,7 @@ class PromotionController extends Controller
     {
         $data = $request->all();
         $promotion = Promotion::create($data);
-        Toastr::info('Delete Thanh Cong');
+        Toastr::success('Create Thanh Cong');
         return redirect()->route('promotions.index');
     }
 
