@@ -24,8 +24,8 @@ class CheckPasswordUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required|same:password',
+            'password' => 'string|min:6|confirmed',
+            'password_confirmation' => 'same:password',
         ];
     }
 }
