@@ -28,12 +28,12 @@ class UserController extends Controller
         return view('admin.users.changepassword', compact('user'));
     }
 
-    public function updatepassword(User $user, CheckPasswordUserRequest $request)
+    public function updatepassword(User $user,CheckPasswordUserRequest $request)
     {
         $data = $request->all();
         $data = Input::all();
         $user->update($data);
-        Toastr::success('Update Thanh Cong', $title = null, $options = []);
+        Toastr::success('Update Thanh Cong');
         return redirect()->route('users.index');
     }
 
@@ -48,14 +48,14 @@ class UserController extends Controller
         $data = $request->all();
         $data = Input::all();
         $user->update($data);
-        Toastr::success('Update Thanh Cong', $title = null, $options = []);
+        Toastr::success('Update Thanh Cong');
         return redirect()->route('users.index');
     }
 
     public function delete(User $user)
     {
         $user->delete();
-        Toastr::info('Delete Thanh Cong', $title = null, $options = []);
+        Toastr::info('Delete Thanh Cong');
         return redirect()->route('users.index');
     }
 }
