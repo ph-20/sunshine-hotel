@@ -32,9 +32,9 @@
                         <td style="width: 700px;">{{$sv->description}}</td>
                         <td class="center" onclick="return confirm('Bạn muốn xóa không?');"><i class="fa fa-trash-o
                         fa-fw"></i><a
-                                    href="{{ route('rooms.destroy', $sv->id) }}">Delete</a></td>
+                                    href="{{ route('services.destroy', $sv->id) }}">Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i><a
-                                    href="{{ route('rooms.edit', $sv->id) }}">Edit</a></td>
+                                    href="{{ route('services.edit', $sv->id) }}">Edit</a></td>
                     </tr>
                 @endforeach
                 </tbody>
