@@ -24,11 +24,11 @@ class CheckEditUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'last_name'=> 'required|string|min:1|max:20',
-            'first_name'=> 'required|string|min:1|max:20',
-            'phone_number'=>'required|integer',
+            'last_name' => 'required|string|min:1|max:20',
+            'first_name' => 'required|string|min:1|max:20',
+            'phone_number' => 'required|integer',
             'email' => 'required|string|min:1|max:100',
-            'address'=>'string|min:2|max:60',
+            'address' => 'string|min:2|max:60',
         ];
     }
 }
