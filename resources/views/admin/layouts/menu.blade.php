@@ -35,6 +35,9 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="{{route('users.index')}}"><i class="fa fa-address-book-o"></i>&nbsp; Users</a>
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>
