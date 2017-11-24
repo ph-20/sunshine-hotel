@@ -47,13 +47,11 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bars"></i>&nbsp; Room Service<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bars"></i>&nbsp; Manager Booking<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/roomservice/list" class="fa fa-list">&nbsp; All Room Service</a>
-                    </li>
-                    <li>
-                        <a href="admin/roomservice/create" class="fa fa-plus-square">&nbsp; Add Room Service</a>
+                        <a href="{{ route('bookings.index') }}" class="fa fa-list">&nbsp; Booking
+                            Room</a>
                     </li>
                 </ul>
             </li>

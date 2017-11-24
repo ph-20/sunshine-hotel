@@ -8,6 +8,7 @@ class BookRoom extends Model
 {
     //
     protected $table = 'book_rooms';
+    protected $fillable = ['room_id', 'booking_id'];
 
     public function bookings()
     {
@@ -26,6 +27,6 @@ class BookRoom extends Model
 
     public function services()
     {
-        return $this->belongsToMany('App\Service');
+        return $this->belongsToMany('App\Service')->withPivot('unit');;
     }
 }
