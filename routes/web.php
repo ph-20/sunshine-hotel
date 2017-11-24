@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'SiteController@index']);
+Route::get('home', function () {
+    return view('hotel.layouts.headermenu');
+});
 
 Auth::routes();
 
