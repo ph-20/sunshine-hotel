@@ -15,4 +15,3 @@ if (mail($to, $subject, $msg, $headers)) {
 } else {
     echo '<h2>Send email fail</h2>';
 }
-?>
