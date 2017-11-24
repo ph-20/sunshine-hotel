@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('home', function () {
+    return view('hotel.layouts.headermenu');
 });
 
 Auth::routes();
