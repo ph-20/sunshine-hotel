@@ -41,7 +41,7 @@ class BookingRoomController extends Controller
         $bookRoom = BookRoom::where('booking_id', $booking_id)->where('room_id', $room_id)->first();
         $data = Input::all();
         $data['book_room_id'] = $bookRoom->id;
-        $bookRoomService = BookRoomService::create($data);
+        BookRoomService::create($data);
         return redirect()->route('bookings.index')->with('message', 'Thêm dịch vụ thành công');
     }
 
