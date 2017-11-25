@@ -19,7 +19,6 @@ class Room extends Model
     public function roomTypes()
     {
         return $this->belongsTo('App\RoomType', 'room_type_id');
-
     }
 
     public function bookings()
