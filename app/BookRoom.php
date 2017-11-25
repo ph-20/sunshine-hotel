@@ -27,8 +27,7 @@ class BookRoom extends Model
 
     public function services()
     {
-        return $this->belongsToMany('App\Service', 'book_room_services', 'book_room_id',
-            'service_id')
+        return $this->belongsToMany('App\Service', 'book_room_services', 'book_room_id', 'service_id')
             ->withPivot('unit');
     }
 }
