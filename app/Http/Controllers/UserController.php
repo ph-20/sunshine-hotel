@@ -32,8 +32,8 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data = Input::all();
-        $user->update($data);
-        Toastr::success('Update Thanh Cong');
+        $user->update(['password' => bcrypt($data['password'])]);
+        Toastr::success('Update Thành Công');
         return redirect()->route('users.index');
     }
 
@@ -48,7 +48,7 @@ class UserController extends Controller
         $data = $request->all();
         $data = Input::all();
         $user->update($data);
-        Toastr::success('Update Thanh Cong');
+        Toastr::success('Update Thành Công');
         return redirect()->route('users.index');
     }
 

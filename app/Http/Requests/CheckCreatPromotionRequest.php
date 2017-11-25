@@ -27,6 +27,8 @@ class CheckCreatPromotionRequest extends FormRequest
 
             'code' => 'string|min:6|max:6|unique:promotions',
             'discount' => 'required|integer|max:99|min:1',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date'
         ];
     }
 }

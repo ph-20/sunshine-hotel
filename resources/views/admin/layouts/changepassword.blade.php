@@ -1,7 +1,7 @@
 {{ csrf_field() }}
 {{Form::label('password', 'Mật Khẩu Mới: ')}}
 <div class="form-controls {{ $errors->has('password') ? 'has-error' : '' }}">
-    {!! Form::text('password',null,['class'=>'form-control']) !!}
+    {!! Form::password('password',null,['class'=>'form-control']) !!}
     @if ( $errors->has('password') )
         <span class="text-warning">
 	        <strong> {{ $errors->first('password') }}</strong>
@@ -10,7 +10,7 @@
 </div>
 {{Form::label('password_confirmation', 'Nhập Lại Mật Khẩu Mới: ')}}
 <div class="form-controls {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-    {!! Form::text('password_confirmation',null,['class'=>'form-control']) !!}
+    {!! Form::password('password_confirmation',null,['class'=>'form-control']) !!}
     @if ( $errors->has('password_confirmation') )
         <span class="text-warning">
 	        <strong> {{ $errors->first('password_confirmation') }}</strong>

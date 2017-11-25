@@ -28,7 +28,7 @@
 </div>
 {!! Form::label('phone_number', 'Phone Number') !!}
 <div class="form-controls {{ $errors->has('phone_number') ? 'has-error' : '' }}">
-    {!! Form::text('phone_number',null,['class'=>'form-control']) !!}
+    {!! Form::number('phone_number',null,['class'=>'form-control']) !!}
     @if ( $errors->has('phone_number') )
         <span class="text-warning">
 	        <strong> {{ $errors->first('phone_number') }}</strong>
