@@ -21,7 +21,8 @@ class Service extends Model
             'App\BookRoom',
             'book_room_services',
             'book_room_id',
-            'service_id')
+            'service_id'
+        )
             ->withPivot(
                 'unit'
             );
