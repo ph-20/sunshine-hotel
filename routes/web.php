@@ -51,9 +51,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('list', ['as' => 'bookings.index', 'uses' => 'BookingRoomController@getList']);
         Route::get('edit/{id}', ['as' => 'bookings.edit', 'uses' => 'BookingRoomController@getEdit']);
         Route::post('edit/{id}', ['as' => 'bookings.update', 'uses' => 'BookingRoomController@postEdit']);
-        Route::get('create/{booking_id}/{room_id}', ['as' => 'bookings.create', 'uses' => 'BookingRoomController@getCreate']);
-        Route::post('create/{booking_id}/{room_id}', ['as' => 'bookings.store', 'uses' => 'BookingRoomController@postCreate']);
-        Route::get('delete//{booking_id}/{room_id}/{service}', ['as' => 'bookings.destroy', 'uses' => 'BookingRoomController@getDelete']);
+        Route::get('/{booking_id}/{room_id}','BookingRoomController@getCreate');
+        Route::post('/{booking_id}/{room_id}','BookingRoomController@postCreate');
+        Route::get('/service/delete/{id}', ['as' => 'bookings.destroy', 'uses' => 'BookingRoomController@getDelete']);
     });
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', ['as' => 'users.index', 'uses' => 'UserController@home']);
