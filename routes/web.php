@@ -11,10 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'seachroom'], function () {
-    Route::get('/seachroomfor2people', ['as' => 'seachroom.seachroomfor2people', 'uses' => 'RoomController@seachroomfor2people']);
-});
-
 Auth::routes();
 
 // Route Group Admin
