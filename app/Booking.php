@@ -12,21 +12,21 @@ class Booking extends Model
 
     public function users()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function bookRooms()
     {
-        return $this->hasMany('App\BookRoom','booking_id');
+        return $this->hasMany('App\BookRoom', 'booking_id');
     }
 
     public function promotions()
     {
-        return $this->belongsTo('App\Promotion','promotion_id');
+        return $this->belongsTo('App\Promotion', 'promotion_id');
     }
 
     public function rooms()
     {
-        return $this->belongsToMany('App\Room','book_rooms');
+        return $this->belongsToMany('App\Room', 'book_rooms');
     }
 }
