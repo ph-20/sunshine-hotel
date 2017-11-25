@@ -17,6 +17,13 @@ class BookingRoomController extends Controller
         return view('admin.bookingrooms.list', compact('bookRooms'));
     }
 
+    // Detail Service
+    public function getDetail($id)
+    {
+        $bookRooms = BookRoom::find($id);
+        return view('admin.bookingrooms.servicedetail', compact('bookRooms'));
+    }
+
     // Create
     public function getCreate($booking_id, $room_id)
     {

@@ -49,8 +49,7 @@ Route::group(['prefix' => 'admin'], function () {
     // Route Group Manager Booking
     Route::group(['prefix' => 'bookings'], function () {
         Route::get('list', ['as' => 'bookings.index', 'uses' => 'BookingRoomController@getList']);
-        Route::get('edit/{id}', ['as' => 'bookings.edit', 'uses' => 'BookingRoomController@getEdit']);
-        Route::post('edit/{id}', ['as' => 'bookings.update', 'uses' => 'BookingRoomController@postEdit']);
+        Route::get('detail/{id}', ['as' => 'bookings.detail', 'uses' => 'BookingRoomController@getDetail']);
         Route::get('/{booking_id}/{room_id}', 'BookingRoomController@getCreate');
         Route::post('/{booking_id}/{room_id}', 'BookingRoomController@postCreate');
         Route::get('/service/delete/{id}', ['as' => 'bookings.destroy', 'uses' => 'BookingRoomController@getDelete']);
