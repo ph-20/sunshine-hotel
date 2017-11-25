@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- TITLE -->
     <title>Lotus Hotel</title>
-
+    <base href="{{asset('')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -89,18 +89,18 @@
                         <li>
                             <a href="#">Room <span class="fa fa-caret-down"></span></a>
                             <ul class="sub-menu">
-                                <li><a href="room-2.html">Room For 2 People</a></li>
-                                <li><a href="room-4.html">Room For 4 People</a></li>
-                                <li><a href="room-6.html">Room For 6 People</a></li>
-                                <li><a href="room-detail.html">Room Detail ALL</a></li>
+                                <li><a href="{{route('seachroom.seachroomfor2people')}}">Room For 2 People</a></li>
+                                <li><a href="{{route('seachroom.seachroomfor4people')}}">Room For 4 People</a></li>
+                                <li><a href="{{route('seachroom.seachroomfor6people')}}">Room For 6 People</a></li>
+                                <li><a href="{{route('seachroom.detailallroom')}}">Room Detail ALL</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">Gallery <span class="fa fa-caret-down"></span></a>
                             <ul class="sub-menu">
-                                <li><a href="gallery.html">Gallery Style Vip</a></li>
-                                <li><a href="gallery-2.html">Gallery Style Deluxe</a></li>
-                                <li><a href="gallery-3.html">Gallery Style Family</a></li>
+                                <li><a href="{{route('seachroom.seachroomtypevip')}}">Gallery Style Vip</a></li>
+                                <li><a href="{{route('seachroom.seachroomtypedeluxe')}}">Gallery Style Deluxe</a></li>
+                                <li><a href="{{route('seachroom.seachroomtypefamily')}}">Gallery Style Family</a></li>
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact</a></li>
@@ -124,8 +124,13 @@
 @include('hotel.layouts.bannerslider')
 <!-- END / BANNER SLIDER -->
     <!-- CHECK AVAILABILITY -->
-@include('hotel.layouts.checkavailability')
-<!-- END / CHECK AVAILABILITY -->
+    @include('hotel.layouts.checkavailability')
+    <div id="page-wrapper">
+        <section class="content-header">
+            @yield('content')
+        </section>
+    </div>
+    <!-- END / CHECK AVAILABILITY -->
     <!-- FOOTER -->
     <footer id="footer">
 
