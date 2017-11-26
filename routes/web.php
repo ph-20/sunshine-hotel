@@ -82,7 +82,7 @@ Route::group(['prefix' => 'home'], function () {
             'uses' => 'RoomController@detailallroom']);
         Route::get('/detailroom/{id}', ['as' => 'seachroom.detailroom',
             'uses' => 'RoomController@detailroom']);
-        Route::post('/seach', ['as' => 'seachroom.showroom',
+        Route::post('/seach', ['as' => 'seachroom.seachroom',
             'uses' => 'RoomController@seachroom']);
     });
 });

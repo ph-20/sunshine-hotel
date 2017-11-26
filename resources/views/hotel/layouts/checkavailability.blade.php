@@ -6,7 +6,7 @@
                     <h2>CHECK AVAILABILITY</h2>
                 </div>
                 <div class="col-lg-9">
-                    <form id="ajax-form-search-room" action="{{route('seachroom.showroom')}}" method="post">
+                    <form id="ajax-form-search-room" action="{{route('seachroom.seachroom')}}" method="post">
                         <div class="availability-form">
                             <input type="text" name="arrive" class="awe-calendar from" placeholder="Arrival Date">
                             <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
