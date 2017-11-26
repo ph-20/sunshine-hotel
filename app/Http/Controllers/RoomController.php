@@ -191,8 +191,6 @@ class RoomController extends Controller
 
         $request->session()->put('arrival', $arrival);
         $request->session()->put('departure', $departure);
-        $request->session()->put('amount_people', $amount_people);
-        $request->session()->put('roomType', $roomType);
 
         $rooms = Room::where('room_status', '=', 1)
             ->where('amount_people', '=', $request->$amount_people)
@@ -209,6 +207,7 @@ class RoomController extends Controller
             ->get();
         if (count($rooms) == 0) {
             return redirect('/message');
-        } else return view('hotel.seachroom.detailallroom', compact('rooms'));
+        } else
+            return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 }
