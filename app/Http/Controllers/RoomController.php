@@ -187,10 +187,12 @@ class RoomController extends Controller
         $departure = $data['departure'];
         $to = date("Y-m-d", strtotime($departure));
         $amount_people = $data['amount_people'];
-        $roomType = $data['roomType'];
+        $roomtype = $data['roomtype'];
 
         $request->session()->put('arrival', $arrival);
         $request->session()->put('departure', $departure);
+        $request->session()->put('amount_people', $amount_people);
+        $request->session()->put('roomTypes', $roomtype);
 
         $rooms = Room::where('room_status', '=', 1)
             ->where('amount_people', '=', $request->$amount_people)
@@ -207,8 +209,7 @@ class RoomController extends Controller
             ->get();
         if (count($rooms) == 0) {
             return redirect('/message');
-        } else {
+        } else
             return view('hotel.seachroom.detailallroom', compact('rooms'));
-        }
     }
 }

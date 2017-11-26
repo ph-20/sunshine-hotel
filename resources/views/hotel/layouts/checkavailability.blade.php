@@ -17,7 +17,7 @@
                                 <option>4</option>
                                 <option>6</option>
                             </select>
-                            <select class="awe-select" name="roomType">
+                            <select class="awe-select" name="roomtype">
                                 <option value="1">Vip</option>
                                 <option value="2">Deluxe</option>
                                 <option value="3">Family</option>
