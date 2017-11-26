@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('home', function () {
-    return view('hotel.layouts.headermenu');
-});
-
 Auth::routes();
 
 // Route Group Admin
@@ -61,5 +57,32 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('create', ['as' => 'promotions.create', 'uses' => 'PromotionController@create']);
         Route::post('/', ['as' => 'promotions.save', 'uses' => 'PromotionController@save']);
         Route::delete('{promotion}', ['as' => 'promotions.destroy', 'uses' => 'PromotionController@delete']);
+    });
+});
+Route::group(['prefix' => 'home'], function () {
+    Route::get('/', function () {
+        return view('hotel.layouts.headermenu');
+    });
+    Route::group(['prefix' => 'seachroom'], function () {
+        Route::get('/seachroomfor2people', ['as' => 'seachroom.seachroomfor2people',
+            'uses' => 'RoomController@seachroomfor2people']);
+        Route::get('/seachroomfor4people', ['as' => 'seachroom.seachroomfor4people',
+            'uses' => 'RoomController@seachroomfor4people']);
+        Route::get('/seachroomfor6people', ['as' => 'seachroom.seachroomfor6people',
+            'uses' => 'RoomController@seachroomfor6people']);
+        Route::get('/seachroomtypevip', ['as' => 'seachroom.seachroomtypevip',
+            'uses' => 'RoomController@seachroomtypevip']);
+        Route::get('/seachroomtypedeluxe', ['as' => 'seachroom.seachroomtypedeluxe',
+            'uses' => 'RoomController@seachroomtypedeluxe']);
+        Route::get('/seachroomtypefamily', ['as' => 'seachroom.seachroomtypefamily',
+            'uses' => 'RoomController@seachroomtypefamily']);
+        Route::get('/seachroomtypefamily', ['as' => 'seachroom.seachroomtypefamily',
+            'uses' => 'RoomController@seachroomtypefamily']);
+        Route::get('/detailallroom', ['as' => 'seachroom.detailallroom',
+            'uses' => 'RoomController@detailallroom']);
+        Route::get('/detailroom/{id}', ['as' => 'seachroom.detailroom',
+            'uses' => 'RoomController@detailroom']);
+        Route::post('/seach', ['as' => 'seachroom.seachroom',
+            'uses' => 'RoomController@seachroom']);
     });
 });
