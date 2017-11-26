@@ -8,12 +8,13 @@ class Room extends Model
 {
     //
     protected $table = 'rooms';
-    protected $fillable = ['name', 'room_type_id', 'price', 'status',
-        'description', 'amount_people', 'image1', 'image2', 'image3'];
+  
+    protected $fillable = ['id', 'name', 'price', 'status', 'description', 'amount_people', 'room_type_id',
+        'images1', 'images2', 'images3'];
 
     public function bookRooms()
     {
-        return $this->hasMany('App\BookRoom');
+        return $this->hasMany('App\BookRoom', 'room_id');
     }
 
     public function roomTypes()
