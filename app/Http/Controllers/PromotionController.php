@@ -29,14 +29,14 @@ class PromotionController extends Controller
     {
         $data = $request->all();
         $promotion = Promotion::create($data);
-        Toastr::success('Create Thanh Cong');
+        Toastr::success('Create Thành Công');
         return redirect()->route('promotions.index');
     }
 
     public function delete(Promotion $promotion)
     {
         $promotion->delete();
-        Toastr::info('Delete Thanh Cong');
+        Toastr::info('Delete Thành Công');
         return redirect()->route('promotions.index');
     }
 }
