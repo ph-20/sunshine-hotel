@@ -47,7 +47,7 @@ class RoomController extends Controller
                 'txtName.max' => 'Tên phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtPrice.required' => 'Bạn chưa nhập giá tiền cho phòng',
                 'txtPrice.min' => 'Giá tiền phải lớn hơn 50.000vnd',
-                'txtPrice.numeric'=>'Bạn phải nhập giá tiền kiểu số',
+                'txtPrice.numeric' => 'Bạn phải nhập giá tiền kiểu số',
                 'txtDescription.required' => 'Bạn chưa nhập mô tả phòng',
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -97,7 +97,7 @@ class RoomController extends Controller
                 'txtName.unique' => 'Tên phòng đã tồn tại',
                 'txtPrice.required' => 'Bạn chưa nhập giá tiền cho phòng',
                 'txtPrice.min' => 'Giá tiền phải lớn hơn 50.000vnd',
-                'txtPrice.numeric'=>'Bạn phải nhập giá tiền kiểu số',
+                'txtPrice.numeric' => 'Bạn phải nhập giá tiền kiểu số',
                 'txtDescription.required' => 'Bạn chưa nhập mô tả phòng',
                 'txtDescription.min' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
                 'txtDescription.max' => 'Mô tả phòng phải có độ dài từ 3 đến 100 ký tự',
@@ -128,5 +128,89 @@ class RoomController extends Controller
         $room = Room::find($id);
         $room->delete();
         return redirect()->route('rooms.index')->with('message', 'Đã xóa thành công');
+    }
+
+    public function detailroom($id)
+    {
+        $room = Room::find($id);
+        return view('hotel.seachroom.detailroom', compact('room'));
+    }
+
+    public function detailallroom()
+    {
+        $rooms = Room::all();
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
+    }
+
+    public function seachroomfor2people()
+    {
+        $rooms = Room::where('amount_people', '=', 2)->get();
+        return view('hotel.seachroom.seachfor2people', compact('rooms'));
+    }
+
+    public function seachroomfor4people()
+    {
+        $rooms = Room::where('amount_people', '=', 4)->get();
+        return view('hotel.seachroom.seachfor4people', compact('rooms'));
+    }
+
+    public function seachroomfor6people()
+    {
+        $rooms = Room::where('amount_people', '=', 6)->get();
+        return view('hotel.seachroom.seachfor6people', compact('rooms'));
+    }
+
+    public function seachroomtypevip()
+    {
+        $rooms = Room::where('room_type_id', '=', 1)->get();
+        return view('hotel.seachroom.seachforroomvip', compact('rooms'));
+    }
+
+    public function seachroomtypedeluxe()
+    {
+        $rooms = Room::where('room_type_id', '=', 2)->get();
+        return view('hotel.seachroom.seachforroomdeluxe', compact('rooms'));
+    }
+
+    public function seachroomtypefamily()
+    {
+        $rooms = Room::where('room_type_id', '=', 3)->get();
+        return view('hotel.seachroom.seachforroomfamily', compact('rooms'));
+    }
+
+    public function seachroom(Request $request)
+    {
+
+        $data = Input::all();
+        $arrival = $data['arrival'];
+        $from = date("Y-m-d", strtotime($arrival));
+        $departure = $data['departure'];
+        $to = date("Y-m-d", strtotime($departure));
+        $amount_people = $data['amount_people'];
+        $roomtype = $data['roomtype'];
+
+        $request->session()->put('arrival', $arrival);
+        $request->session()->put('departure', $departure);
+        $request->session()->put('amount_people', $amount_people);
+        $request->session()->put('roomTypes', $roomtype);
+
+        $rooms = Room::where('room_status', '=', 1)
+            ->where('amount_people', '=', $request->$amount_people)
+            ->whereDoesntHave('room_type_id', $request->roomType)
+            ->whereDoesntHave('bookings', function ($query) use ($from) {
+                $query->where('check_in_date', '<=', $from)->where('check_out_date', '>=', $from);
+            })
+            ->whereDoesntHave('bookings', function ($query) use ($to) {
+                $query->where('check_in_date', '<=', $to)->where('check_out_date', '>=', $to);
+            })
+            ->whereDoesntHave('bookings', function ($query) use ($from, $to) {
+                $query->where('check_in_date', '>=', $from)->where('check_out_date', '<=', $to);
+            })
+            ->get();
+        if (count($rooms) == 0) {
+            return redirect('/message');
+        } else {
+            return view('hotel.seachroom.detailallroom', compact('rooms'));
+        }
     }
 }
