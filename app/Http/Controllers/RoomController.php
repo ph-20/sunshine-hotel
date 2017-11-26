@@ -207,7 +207,8 @@ class RoomController extends Controller
             ->get();
         if (count($rooms) == 0) {
             return redirect('/message');
-        } else
+        } else {
             return view('hotel.seachroom.detailallroom', compact('rooms'));
+        }
     }
 }
