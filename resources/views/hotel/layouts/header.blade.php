@@ -5,16 +5,19 @@
         <div class="container">
             <div class="header_left float-left">
                 <span><i class="lotus-icon-location"></i> 92 Quang Trung, TP Đà Nẵng</span>
+                @auth
+                <span><i class="lotus-icon-person"></i> Xin chào: {{ Auth::user()->getName() }}</span>
+                @endauth
             </div>
             <div class="header_right float-right">
                 <span class="login-register">
                 <!-- Authentication Links -->
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">register</a>
+                    <a href="{{ route('login') }}">Đăng nhập</a>
+                    <a href="{{ route('register') }}">Đăng ký</a>
                 @else
                     <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>

@@ -1,47 +1,43 @@
 @extends('hotel.layouts.app')
 
+@section('title')
+    Quên mật khẩu
+@endsection
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<!-- ACCOUNT -->
+<section class="section-account parallax bg-11">
+    <div class="awe-overlay"></div>
+    <div class="container">
+        <div class="login-register">
+            <div class="text text-center">
+                <h2>Bạn quên mật khẩu?</h2>
+                <p>Nhập địa chỉ email của bạn dưới đây và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn.</p>
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                <form method="POST" action="{{ route('password.email') }}" class="account_form">
+                    {{ csrf_field() }}
+                    <div class="field-form">
+                        <input type="text" name="email" class="field-text" placeholder="Email" value="{{ old('email') }}" autofocus>
+                        @if ($errors->has('email'))
+                            <span class="text-danger">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="field-form field-submit">
+                        <button type="submit" class="awe-btn awe-btn-13">Gửi</button>
+                    </div>
+                <span class="account-desc">
+                    <a href="{{ url('/') }}">Quay lại trang chủ!</a>
+                </span>
+                </form>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- END / ACCOUNT -->
 @endsection

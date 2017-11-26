@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Booking', 'user_id');
     }
+
+    public function getName()
+    {
+        return $this->getAttribute('first_name') . ' ' . $this->getAttribute('last_name');
+    }
 }
