@@ -32,7 +32,7 @@
                     <div class="widget widget_logo">
                         <div class="widget-logo">
                             <div class="img">
-                                <a href="#"><img src="{{ asset('Lotus/images/logo-footer.png') }}" alt=""></a>
+                                <a href="{{ url('/') }}"><img src="{{ asset('Lotus/images/logo-footer.png') }}" alt=""></a>
                             </div>
                             <div class="text">
                                 <p><i class="lotus-icon-location"></i> 92 Qaung Trung, TP Đà Nẵng</p>

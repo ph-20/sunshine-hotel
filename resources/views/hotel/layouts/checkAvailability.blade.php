@@ -7,6 +7,7 @@
                 </div>
                 <div class="col-lg-9">
                     <form action="{{route('seachroom.seachroom')}}" method="post">
+                        {{ csrf_field() }}
                         <div class="availability-form">
                             <input type="text" name="arrive" class="awe-calendar from" placeholder="Arrival Date">
                             <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
