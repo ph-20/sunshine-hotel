@@ -211,7 +211,6 @@ class RoomController extends Controller
             return redirect('/message');
         } else {
             return view('hotel.seachroom.detailallroom', compact('rooms'));
-
         }
     }
 }
