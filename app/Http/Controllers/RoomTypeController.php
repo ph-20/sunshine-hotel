@@ -28,8 +28,8 @@ class RoomTypeController extends Controller
         $this->validate(
             $request,
             [
-            'name' => 'required|min:3|max:100',
-            'description' => 'required|min:3|max:100'
+                'name' => 'required|min:3|max:100',
+                'description' => 'required|min:3|max:100'
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên loại phòng',
@@ -57,7 +57,7 @@ class RoomTypeController extends Controller
         $this->validate(
             $request,
             [
-            'name' => 'required|min:3|max:100|unique:room_types,name'
+                'name' => 'required|min:3|max:100|unique:room_types,name'
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên loại phòng',

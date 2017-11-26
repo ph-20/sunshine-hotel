@@ -42,6 +42,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', ['as' => 'services.store', 'uses' => 'ServiceController@postCreate']);
         Route::get('delete/{id}', ['as' => 'services.destroy', 'uses' => 'ServiceController@getDelete']);
     });
+    // Route Group Manager Booking
+    Route::group(['prefix' => 'bookings'], function () {
+        Route::get('list', ['as' => 'bookings.index', 'uses' => 'BookingRoomController@getList']);
+        Route::get('detail/{id}', ['as' => 'bookings.detail', 'uses' => 'BookingRoomController@getDetail']);
+        Route::get('/{booking_id}/{room_id}', 'BookingRoomController@getCreate');
+        Route::post('/{booking_id}/{room_id}', 'BookingRoomController@postCreate');
+        Route::get('/service/delete/{id}', ['as' => 'bookings.destroy', 'uses' => 'BookingRoomController@getDelete']);
+    });
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', ['as' => 'users.index', 'uses' => 'UserController@home']);
         Route::get('index', ['as' => 'users.index', 'uses' => 'UserController@index']);
