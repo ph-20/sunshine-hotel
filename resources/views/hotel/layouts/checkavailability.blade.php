@@ -10,9 +10,7 @@
                         <div class="availability-form">
                             <input type="text" name="arrive" class="awe-calendar from" placeholder="Arrival Date">
                             <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
-
                             <select class="awe-select" name="amount_people">
-                                <option>Adults</option>
                                 <option>2</option>
                                 <option>4</option>
                                 <option>6</option>
