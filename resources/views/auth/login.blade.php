@@ -1,7 +1,14 @@
-@extends('layouts.app')
+@extends('hotel.layouts.app')
 
 @section('title')
     Đăng nhập
+@endsection
+
+@section('subBanner')
+    @include('hotel.layouts.subBanner',[
+        'title' => 'Đăng nhập',
+        'description' => '',
+    ])
 @endsection
 
 @section('content')

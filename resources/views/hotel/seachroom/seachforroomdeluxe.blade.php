@@ -1,4 +1,4 @@
-@extends('hotel.layouts.headermenu')
+@extends('hotel.layouts.app')
 @section('content')
     <h1>List All Room For Room Type Deluxe</h1>
     <section class="section-room bg-white">

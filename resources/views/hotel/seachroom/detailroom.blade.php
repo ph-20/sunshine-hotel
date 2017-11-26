@@ -1,4 +1,4 @@
-@extends('hotel.layouts.headermenu')
+@extends('hotel.layouts.app')
 @section('content')
     <!-- ROOM DETAIL -->
     <section class="section-room-detail bg-white">

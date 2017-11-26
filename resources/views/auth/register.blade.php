@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('hotel.layouts.app')
 
 @section('title')
     Đăng ký
