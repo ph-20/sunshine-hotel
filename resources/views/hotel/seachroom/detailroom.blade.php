@@ -1,4 +1,7 @@
 @extends('hotel.layouts.app')
+@section('subBanner')
+    @include('hotel.layouts.subBanner')
+@endsection
 @section('content')
     <!-- ROOM DETAIL -->
     <section class="section-room-detail bg-white">

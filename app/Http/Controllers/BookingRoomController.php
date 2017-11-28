@@ -57,6 +57,6 @@ class BookingRoomController extends Controller
     {
         $bookRoomService = BookRoomService::find($id);
         $bookRoomService->delete();
-        return redirect()->route('bookings.index')->with('message', 'Đã xóa thành công');
+        return redirect()->route('bookings.detail', $bookRoomService->bookRooms->id)->with('message', 'Đã xóa thành công');
     }
 }
