@@ -6,16 +6,19 @@
                     <h2>CHECK AVAILABILITY</h2>
                 </div>
                 <div class="col-lg-9">
-                    <form id="ajax-form-search-room" action="{{route('seachroom.seachroom')}}" method="post">
+                    <form action="{{route('seachroom.seachroom')}}" method="post">
+                        {{ csrf_field() }}
                         <div class="availability-form">
                             <input type="text" name="arrive" class="awe-calendar from" placeholder="Arrival Date">
                             <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
-                            <select class="awe-select" name="amount_people">
+                            <select class="awe-select" id="amount_people" name="amount_people">
+                                <option>Number People</option>
                                 <option>2</option>
                                 <option>4</option>
                                 <option>6</option>
                             </select>
-                            <select class="awe-select" name="roomtype">
+                            <select class="awe-select" id="roomtypeid" name="roomtypeid">
+                                <option>Room Type</option>
                                 <option value="1">Vip</option>
                                 <option value="2">Deluxe</option>
                                 <option value="3">Family</option>

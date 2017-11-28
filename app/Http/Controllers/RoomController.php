@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Room;
 use App\RoomType;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades;
 use Validator;
 use Cart;
 use Illuminate\Support\Facades\Storage;
@@ -182,29 +184,29 @@ class RoomController extends Controller
     {
 
         $data = Input::all();
-        $arrival = $data['arrival'];
-        $from = date("Y-m-d", strtotime($arrival));
+        $arrive = $data['arrive'];
+        $from = date("Y-m-d", strtotime($arrive));
         $departure = $data['departure'];
         $to = date("Y-m-d", strtotime($departure));
         $amount_people = $data['amount_people'];
-        $roomtype = $data['roomtype'];
+        $roomtypeid = $data['roomtypeid'];
 
-        $request->session()->put('arrival', $arrival);
+        $request->session()->put('arrive', $arrive);
         $request->session()->put('departure', $departure);
         $request->session()->put('amount_people', $amount_people);
-        $request->session()->put('roomTypes', $roomtype);
+        $request->session()->put('roomtypeid', $roomtypeid);
 
-        $rooms = Room::where('room_status', '=', 1)
-            ->where('amount_people', '=', $request->$amount_people)
-            ->whereDoesntHave('room_type_id', $request->roomType)
+        $rooms = Room::where('status', '=', 0)
+            ->where('amount_people', '=', $request->amount_people)
+            ->where('room_type_id', $request->roomtypeid)
             ->whereDoesntHave('bookings', function ($query) use ($from) {
-                $query->where('check_in_date', '<=', $from)->where('check_out_date', '>=', $from);
+                $query->where('check_in', '<=', $from)->where('check_out', '>=', $from);
             })
             ->whereDoesntHave('bookings', function ($query) use ($to) {
-                $query->where('check_in_date', '<=', $to)->where('check_out_date', '>=', $to);
+                $query->where('check_in', '<=', $to)->where('check_out', '>=', $to);
             })
             ->whereDoesntHave('bookings', function ($query) use ($from, $to) {
-                $query->where('check_in_date', '>=', $from)->where('check_out_date', '<=', $to);
+                $query->where('check_in', '>=', $from)->where('check_out', '<=', $to);
             })
             ->get();
         if (count($rooms) == 0) {
