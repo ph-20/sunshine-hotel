@@ -1,7 +1,7 @@
 @extends('hotel.layouts.app')
 
 @section('title')
-    Trang chủ
+    The Sunshine
 @endsection
 
 @section('content')
