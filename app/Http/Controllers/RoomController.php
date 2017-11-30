@@ -147,37 +147,37 @@ class RoomController extends Controller
     public function seachroomfor2people()
     {
         $rooms = Room::where('amount_people', '=', 2)->get();
-        return view('hotel.seachroom.seachfor2people', compact('rooms'));
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroomfor4people()
     {
         $rooms = Room::where('amount_people', '=', 4)->get();
-        return view('hotel.seachroom.seachfor4people', compact('rooms'));
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroomfor6people()
     {
         $rooms = Room::where('amount_people', '=', 6)->get();
-        return view('hotel.seachroom.seachfor6people', compact('rooms'));
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroomtypevip()
     {
         $rooms = Room::where('room_type_id', '=', 1)->get();
-        return view('hotel.seachroom.seachforroomvip', compact('rooms'));
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroomtypedeluxe()
     {
         $rooms = Room::where('room_type_id', '=', 2)->get();
-        return view('hotel.seachroom.seachforroomdeluxe', compact('rooms'));
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroomtypefamily()
     {
         $rooms = Room::where('room_type_id', '=', 3)->get();
-        return view('hotel.seachroom.seachforroomfamily', compact('rooms'));
+        return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroom(Request $request)
