@@ -1,68 +1,53 @@
-@extends('layouts.app')
+@extends('hotel.layouts.app')
 
 @section('title')
     Đăng nhập
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Đăng nhập</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email <span class="text-danger">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Mật khẩu <span class="text-danger">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Ghi nhớ
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                                <a class="btn btn-link" href="{{ route('password.request') }}">Quên mật khẩu?</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<!-- ACCOUNT -->
+<section class="section-account parallax bg-11">
+    <div class="awe-overlay"></div>
+    <div class="container">
+        <div class="login-register">
+            <div class="text text-center">
+                <h2>LOGIN ACCOUNT</h2>
+                <p>Khách hàng đã đăng ký</p>
+                <form action="{{ route('login') }}" method="POST" class="account_form">
+                    {{ csrf_field() }}
+                    <div class="field-form">
+                        <input type="text" name="email" class="field-text" placeholder="Email" value="{{ old('email') }}" autofocus>
+                        @if ($errors->has('email'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="field-form">
+                        <input type="password" name="password" class="field-text" placeholder="Password">
+                        <span class="view-pass"><i class="lotus-icon-view"></i></span>
+                        @if ($errors->has('password'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="field-form">
+                        <label>
+                            <input type="checkbox" name="remember" class="field-checkbox" {{ old('remember') ? 'checked' : '' }}> Ghi nhớ
+                        </label>
+                    </div>
+                    <div class="field-form field-submit">
+                        <button type="submit" class="awe-btn awe-btn-13">Đăng nhập</button>
+                    </div>
+                    <span class="account-desc">
+                        <a href="{{ route('register') }}">Đăng kí ngay!</a>  -
+                        <a href="{{ route('password.request') }}">Quên mật khẩu?</a>
+                    </span>
+                </form>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- END / ACCOUNT -->
 @endsection

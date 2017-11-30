@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('hotel.index');
+});
 
 Auth::routes();
 
@@ -42,6 +45,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('create', ['as' => 'services.store', 'uses' => 'ServiceController@postCreate']);
         Route::get('delete/{id}', ['as' => 'services.destroy', 'uses' => 'ServiceController@getDelete']);
     });
+    // Route Group Manager Booking
+    Route::group(['prefix' => 'bookings'], function () {
+        Route::get('list', ['as' => 'bookings.index', 'uses' => 'BookingRoomController@getList']);
+        Route::get('detail/{id}', ['as' => 'bookings.detail', 'uses' => 'BookingRoomController@getDetail']);
+        Route::get('/{booking_id}/{room_id}', 'BookingRoomController@getCreate');
+        Route::post('/{booking_id}/{room_id}', 'BookingRoomController@postCreate');
+        Route::get('/service/delete/{id}', ['as' => 'bookings.destroy', 'uses' => 'BookingRoomController@getDelete']);
+    });
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', ['as' => 'users.index', 'uses' => 'UserController@home']);
         Route::get('index', ['as' => 'users.index', 'uses' => 'UserController@index']);
@@ -59,30 +70,26 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('{promotion}', ['as' => 'promotions.destroy', 'uses' => 'PromotionController@delete']);
     });
 });
-Route::group(['prefix' => 'home'], function () {
-    Route::get('/', function () {
-        return view('hotel.layouts.headermenu');
-    });
-    Route::group(['prefix' => 'seachroom'], function () {
-        Route::get('/seachroomfor2people', ['as' => 'seachroom.seachroomfor2people',
-            'uses' => 'RoomController@seachroomfor2people']);
-        Route::get('/seachroomfor4people', ['as' => 'seachroom.seachroomfor4people',
-            'uses' => 'RoomController@seachroomfor4people']);
-        Route::get('/seachroomfor6people', ['as' => 'seachroom.seachroomfor6people',
-            'uses' => 'RoomController@seachroomfor6people']);
-        Route::get('/seachroomtypevip', ['as' => 'seachroom.seachroomtypevip',
-            'uses' => 'RoomController@seachroomtypevip']);
-        Route::get('/seachroomtypedeluxe', ['as' => 'seachroom.seachroomtypedeluxe',
-            'uses' => 'RoomController@seachroomtypedeluxe']);
-        Route::get('/seachroomtypefamily', ['as' => 'seachroom.seachroomtypefamily',
-            'uses' => 'RoomController@seachroomtypefamily']);
-        Route::get('/seachroomtypefamily', ['as' => 'seachroom.seachroomtypefamily',
-            'uses' => 'RoomController@seachroomtypefamily']);
-        Route::get('/detailallroom', ['as' => 'seachroom.detailallroom',
-            'uses' => 'RoomController@detailallroom']);
-        Route::get('/detailroom/{id}', ['as' => 'seachroom.detailroom',
-            'uses' => 'RoomController@detailroom']);
-        Route::post('/seach', ['as' => 'seachroom.seachroom',
-            'uses' => 'RoomController@seachroom']);
-    });
+// Home page
+Route::group(['prefix' => 'seachroom'], function () {
+    Route::get('/seachroomfor2people', ['as' => 'seachroom.seachroomfor2people',
+    'uses' => 'RoomController@seachroomfor2people']);
+    Route::get('/seachroomfor4people', ['as' => 'seachroom.seachroomfor4people',
+        'uses' => 'RoomController@seachroomfor4people']);
+    Route::get('/seachroomfor6people', ['as' => 'seachroom.seachroomfor6people',
+        'uses' => 'RoomController@seachroomfor6people']);
+    Route::get('/seachroomtypevip', ['as' => 'seachroom.seachroomtypevip',
+        'uses' => 'RoomController@seachroomtypevip']);
+    Route::get('/seachroomtypedeluxe', ['as' => 'seachroom.seachroomtypedeluxe',
+        'uses' => 'RoomController@seachroomtypedeluxe']);
+    Route::get('/seachroomtypefamily', ['as' => 'seachroom.seachroomtypefamily',
+        'uses' => 'RoomController@seachroomtypefamily']);
+    Route::get('/seachroomtypefamily', ['as' => 'seachroom.seachroomtypefamily',
+        'uses' => 'RoomController@seachroomtypefamily']);
+    Route::get('/detailallroom', ['as' => 'seachroom.detailallroom',
+        'uses' => 'RoomController@detailallroom']);
+    Route::get('/detailroom/{id}', ['as' => 'seachroom.detailroom',
+        'uses' => 'RoomController@detailroom']);
+    Route::post('/seach', ['as' => 'seachroom.seachroom',
+        'uses' => 'RoomController@seachroom']);
 });

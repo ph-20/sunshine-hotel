@@ -8,24 +8,33 @@ class BookRoom extends Model
 {
     //
     protected $table = 'book_rooms';
+    protected $fillable = ['room_id', 'booking_id'];
 
     public function bookings()
     {
-        return $this->belongsTo('App\Booking');
+        return $this->belongsTo('App\Booking', 'booking_id');
     }
 
     public function rooms()
     {
-        return $this->belongsTo('App\Room');
+        return $this->belongsTo('App\Room', 'room_id');
     }
 
     public function bookRoomServices()
     {
-        return $this->hasMany('App\BookRoomService');
+        return $this->hasMany('App\BookRoomService', 'book_room_id');
     }
 
     public function services()
     {
-        return $this->belongsToMany('App\Service');
+        return $this->belongsToMany(
+            'App\Service',
+            'book_room_services',
+            'book_room_id',
+            'service_id'
+        )
+            ->withPivot(
+                'unit'
+            );
     }
 }

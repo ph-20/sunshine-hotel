@@ -1,4 +1,7 @@
-@extends('hotel.layouts.headermenu')
+@extends('hotel.layouts.app')
+@section('subBanner')
+    @include('hotel.layouts.subBanner')
+@endsection
 @section('content')
     <h1>List All Room</h1>
     <section class="section-room bg-white">

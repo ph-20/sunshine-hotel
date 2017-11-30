@@ -15,12 +15,12 @@
             <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label>Service Name</label>
+                    <label>Service Name <b style="color: red">*</b></label>
                     <input class="form-control" name="txtName" value="{{old('txtName')}}"
                            placeholder="Please Enter Service Name"/>
                 </div>
                 <div class="form-group">
-                    <label>Price VND</label>
+                    <label>Price VND <b style="color: red">*</b></label>
                     <input class="form-control" type="number" name="txtPrice" value="{{old('txtPrice')}}"
                            placeholder="Please Enter Price"/>
                 </div>

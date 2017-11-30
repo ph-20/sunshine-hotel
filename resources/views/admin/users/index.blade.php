@@ -29,7 +29,7 @@
                                     <td>{{$user->email}}</td>
                                     <td>@if ($user->role == 0) Khach Hang @else Admin @endif</td>
                                     <td>{{$user->phone_number}}</td>
-                                    <td>@if ($user->active == 0) True @else False @endif</td>
+                                    <td>@if ($user->active == 0) Đang Hoạt Động @else Khóa @endif</td>
                                     <td><a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit">
                                                 Edit</i></a>
                                         <a href="{{ route('users.changepassword', $user->id) }}"><i class="fa fa-cog">
