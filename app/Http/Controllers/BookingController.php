@@ -93,19 +93,18 @@ class BookingController extends Controller
                         'person' => $room->amount_people,
                         'image' => $room->image1
                     ]
-            ]);
+            ]
+        );
         return redirect()->route('carts.show');
     }
 
     // Create
     public function getCreate()
     {
-
     }
 
     public function postCreate(Request $request)
     {
-
     }
 
     // Delete
