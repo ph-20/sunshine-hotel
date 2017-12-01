@@ -12,12 +12,13 @@
         <div class="login-register">
             <div class="text text-center">
                 <h2>REGISTER FORM</h2>
-                <p>Tạo tài khoản khách hàng mới</p>
+                <p>Create new account</p>
                 <form method="POST" action="{{ route('register') }}" class="account_form">
                     {{ csrf_field() }}
                     <!-- First Name -->
                     <div class="field-form">
-                        <input type="text" class="field-text" name="first_name" value="{{ old('first_name') }}" placeholder="Họ *" autofocus>
+                        <input type="text" class="field-text" name="first_name" value="{{ old('first_name') }}"
+                               placeholder="First Name *" autofocus>
                         @if ($errors->has('first_name'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('first_name') }}</strong>
@@ -26,7 +27,8 @@
                     </div>
                     <!-- Last Name -->
                     <div class="field-form">
-                        <input type="text" class="field-text" name="last_name" value="{{ old('last_name') }}" placeholder="Tên *">
+                        <input type="text" class="field-text" name="last_name" value="{{ old('last_name') }}"
+                               placeholder="Last Name *">
                         @if ($errors->has('last_name'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('last_name') }}</strong>
@@ -44,7 +46,8 @@
                     </div>
                     <!-- Password -->
                     <div class="field-form">
-                        <input type="password" class="field-text" name="password" value="{{ old('password') }}" placeholder="Mật khẩu *">
+                        <input type="password" class="field-text" name="password" value="{{ old('password') }}"
+                               placeholder="Password *">
                         @if ($errors->has('password'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('password') }}</strong>
@@ -53,11 +56,13 @@
                     </div>
                     <!-- Confirm Password -->
                     <div class="field-form">
-                        <input type="password" class="field-text" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Nhập lại mật khẩu *">
+                        <input type="password" class="field-text" name="password_confirmation" value="{{ old
+                        ('password_confirmation') }}" placeholder="Confirm password *">
                     </div>
                     <!-- Phone -->
                     <div class="field-form">
-                        <input type="text" class="field-text" name="phone_number" value="{{ old('phone_number') }}" placeholder="Số điện thoại">
+                        <input type="text" class="field-text" name="phone_number" value="{{ old('phone_number') }}"
+                               placeholder="Phone">
                         @if ($errors->has('phone_number'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('phone_number') }}</strong>
@@ -66,7 +71,8 @@
                     </div>
                     <!-- Address -->
                     <div class="field-form">
-                        <input type="text" class="field-text" name="address" value="{{ old('address') }}" placeholder="Địa chỉ">
+                        <input type="text" class="field-text" name="address" value="{{ old('address') }}"
+                               placeholder="Address">
                         @if ($errors->has('address'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('address') }}</strong>
@@ -74,7 +80,7 @@
                         @endif
                     </div>
                     <div class="field-form field-submit">
-                        <button type="submit" class="awe-btn awe-btn-13">Đăng ký</button>
+                        <button type="submit" class="awe-btn awe-btn-13">Register</button>
                     </div>
                 </form>
             </div>

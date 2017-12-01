@@ -3,7 +3,8 @@
     <div id="slider-revolution">
         <ul>
             <li data-transition="fade">
-                <img src="{{ asset('Lotus/images/slider/img-1.jpg') }}" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
+                <img src="{{ asset('Lotus/images/slider/img-2.jpg') }}" data-bgposition="left center"
+                     data-duration="14000" data-bgpositionend="right center" alt="">
 
                 <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100" data-speed="700" data-start="1500" data-easing="easeOutBack">
                     <img src="{{ asset('Lotus/images/slider/hom1-slide1.png') }}" alt="icons">
@@ -13,13 +14,15 @@
                     WELCOME TO
                 </div>
 
-                <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280" data-speed="700" data-easing="easeOutBack"  data-start="2000">THE LOTUS HOTEL</div>
+                <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280"
+                     data-speed="700" data-easing="easeOutBack"  data-start="2000">THE SUNSHINE HOTEL</div>
 
                 <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center" data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
             </li>
 
             <li data-transition="fade">
-                <img src="{{ asset('Lotus/images/slider/img-1.jpg') }}" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
+                <img src="{{ asset('Lotus/images/slider/img-3.jpg') }}" data-bgposition="left center"
+                     data-duration="14000" data-bgpositionend="right center" alt="">
 
                 <div class="tp-caption sft fadeout" data-x="center" data-y="195" data-speed="700" data-start="1300" data-easing="easeOutBack">
                     <img src="{{ asset('Lotus/images/icon-slider-1.png') }}" alt="">

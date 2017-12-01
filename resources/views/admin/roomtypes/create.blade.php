@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label>Room Type Name <b style="color: red">*</b></label>
                 <input class="form-control" name="name" value="{{ old('name') }}"
-                       placeholder="Please Enter RoomType Name"/>
+                       placeholder="Please Enter Room Type Name"/>
             </div>
             <div class="form-group">
                 <label>Description</label>

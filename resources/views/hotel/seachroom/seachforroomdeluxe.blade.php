@@ -28,6 +28,8 @@
                                             VNĐ</span> /days</span>
                                     <a href="{{ route('seachroom.detailroom', $room->id) }}" class="awe-btn awe-btn-13">VIEW
                                         DETAILS</a>
+                                    <a href="{{ route('carts.add', $room->id) }}" class="awe-btn
+                                    awe-btn-10">Booking</a>
                                 </div>
                             </div>
                         </div>

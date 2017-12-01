@@ -16,8 +16,8 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label>Room Type Name <b style="color: red">*</b></label>
-                <input class="form-control" name="name" value="{{old('name', $roomTypes->name)}}" placeholder="Please Enter
-                    RoomType Name"/>
+                <input class="form-control" name="name" value="{{old('name', $roomTypes->name)}}"
+                       placeholder="Please Enter Room Type Name"/>
             </div>
             <div class="form-group">
                 <label>Description</label>

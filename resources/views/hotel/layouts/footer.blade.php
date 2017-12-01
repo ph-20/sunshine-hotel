@@ -35,7 +35,7 @@
                                 <a href="{{ url('/') }}"><img src="{{ asset('Lotus/images/logo-footer.png') }}" alt=""></a>
                             </div>
                             <div class="text">
-                                <p><i class="lotus-icon-location"></i> 92 Quang Trung, TP Đà Nẵng</p>
+                                <p><i class="lotus-icon-location"></i> 92 Quang Trung, City Da Nang</p>
                                 <p><i class="lotus-icon-phone"></i> 1-548-854-8898</p>
                                 <p><i class="fa fa-envelope-o"></i> <a href="mailto:hello@sunshinehotel.com">hello@thelotushotel.com</a></p>
                             </div>

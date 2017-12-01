@@ -4,7 +4,7 @@
     <div class="header_top">
         <div class="container">
             <div class="header_left float-left">
-                <span><i class="lotus-icon-location"></i> 92 Quang Trung, TP Đà Nẵng</span>
+                <span><i class="lotus-icon-location"></i> 92 Quang Trung, City Da Nang</span>
                 @auth
                 <span><i class="lotus-icon-person"></i> Xin chào: {{ Auth::user()->getName() }}</span>
                 @endauth
@@ -13,11 +13,11 @@
                 <span class="login-register">
                 <!-- Authentication Links -->
                 @guest
-                    <a href="{{ route('login') }}">Đăng nhập</a>
-                    <a href="{{ route('register') }}">Đăng ký</a>
+                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('register') }}">Register</a>
                 @else
                     <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a>
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
@@ -41,14 +41,14 @@
             <!-- HEADER MENU -->
             <nav class="header_menu">
                 <ul class="menu">
-                    <li><a href="about.html">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li>
                         <a href="#">Room <span class="fa fa-caret-down"></span></a>
                         <ul class="sub-menu">
+                            <li><a href="{{route('seachroom.detailallroom')}}">All Room</a></li>
                             <li><a href="{{route('seachroom.seachroomfor2people')}}">Room For 2 People</a></li>
                             <li><a href="{{route('seachroom.seachroomfor4people')}}">Room For 4 People</a></li>
                             <li><a href="{{route('seachroom.seachroomfor6people')}}">Room For 6 People</a></li>
-                            <li><a href="{{route('seachroom.detailallroom')}}">Room Detail ALL</a></li>
                         </ul>
                     </li>
                     <li>
@@ -59,7 +59,7 @@
                             <li><a href="{{route('seachroom.seachroomtypefamily')}}">Gallery Style Family</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ route('carts.show') }}">Booking</a></li>
                 </ul>
             </nav>
             <!-- END / HEADER MENU -->

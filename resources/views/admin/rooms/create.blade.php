@@ -52,13 +52,10 @@
                 <div class="form-group">
                     <label>Status</label>
                     <label class="radio-inline">
-                        <input name="rdoStatus" value="0" checked="" type="radio">Trả phòng
+                        <input name="rdoStatus" value="1" type="radio">Đã đặt
                     </label>
                     <label class="radio-inline">
-                        <input name="rdoStatus" value="1" type="radio">Đặt phòng
-                    </label>
-                    <label class="radio-inline">
-                        <input name="rdoStatus" value="2" type="radio">Đang ở
+                        <input name="rdoStatus" value="2" type="radio">Phòng trống
                     </label>
                 </div>
                 <button type="submit" class="btn btn-success">Add Room</button>

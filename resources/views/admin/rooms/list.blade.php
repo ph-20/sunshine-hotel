@@ -17,7 +17,7 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Price VND</th>
-                    <th>Status</th>
+                    <th style="width: 80px">Status</th>
                     <th>Description</th>
                     <th>Amount</th>
                     <th>Image 1</th>
@@ -37,7 +37,7 @@
                         <td>{{number_format($rs->price,0,",",".") }}</td>
                         <td style="width: 70px;">
                             @if($rs->status == 1)
-                                {{'Hết phòng'}}
+                                {{'Đã đặt'}}
                             @elseif($rs->status == 2)
                                 {{'Phòng trống'}}
                             @endif

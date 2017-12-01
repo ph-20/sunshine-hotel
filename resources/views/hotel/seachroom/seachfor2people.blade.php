@@ -3,7 +3,7 @@
     @include('hotel.layouts.subBanner')
 @endsection
 @section('content')
-    <h1 style="padding-left:10px;">List All Room For 2 PeoPle</h1>
+    <h1 style="padding-left:10px;">List All Room For 2 People</h1>
     <section class="section-room bg-white">
         <div class="container">
             <div class="room-wrap-1">

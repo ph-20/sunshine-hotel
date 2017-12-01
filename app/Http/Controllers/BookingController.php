@@ -74,7 +74,8 @@ class BookingController extends Controller
     {
         $cart = Cart::content();
         $subtotal = Cart::subtotal(0, '.', ',');
-        return view('hotel.seachroom.shoppingcart', compact('cart', 'subtotal'));
+        $count = Cart::count();
+        return view('hotel.seachroom.shoppingcart', compact('cart', 'subtotal','count'));
     }
 
     // Add Cart

@@ -3,7 +3,10 @@
     @include('hotel.layouts.subBanner')
 @endsection
 @section('content')
-    <p><h2 style="padding-left:160px; ">BOOKING <small>List your booking</small></h2></p>
+    <p>
+    <h2 style="padding-left:50px; ">BOOKING
+        <small>List your booking</small>
+    </h2></p>
     <section class="section-room bg-white">
         <div class="container">
             <div class="room-wrap-1">
@@ -33,17 +36,20 @@
                                     <td>{{$item->qty}}</td>
                                     <td>{{$item->options->person}}</td>
                                     <td>{{$item->options->roomtype}}</td>
-                                    <td style="width: 210px;"><img src="{{asset($item->options->image)}}" alt=""
-                                                               height="200"
-                                             width="200"></td>
+                                    <td style="width: 210px;"><img src="{{asset($item->options->image)}}" alt="" height="100" width="200"></td>
                                     <td>{{number_format($item->price)}} Vnd</td>
                                     <td class="center"><i class="fa fa-trash-o fa-fw"></i><a onclick="return confirm
-                                    ('Bạn có muốn hủy đặt phòng không?');"
-                                      href="{{ route('carts.destroy', $item->rowId) }}">Delete</a></td>
+                                    ('Bạn có muốn hủy đặt phòng không?');" href="{{ route('carts.destroy', $item->rowId) }}">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+                        @if($count == 0)
+                            <div class="col-md-12">
+                                <h4 style="text-align: center; color: gray;"><i>Chưa có phòng được đặt</i></h4>
+                            </div>
+                        @endif
                     </div>
                     <div class="container">
                         <div class="row">

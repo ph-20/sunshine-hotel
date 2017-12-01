@@ -11,7 +11,7 @@
     <div class="container">
         <div class="login-register">
             <div class="text text-center">
-                <h2>Khôi phục mật khẩu!</h2>
+                <h2>password recovery!</h2>
                 <p></p>
                 <form method="POST" action="{{ route('password.request') }}" class="account_form">
                     {{ csrf_field() }}
@@ -44,10 +44,10 @@
                         @endif
                     </div>
                     <div class="field-form field-submit">
-                        <button type="submit" class="awe-btn awe-btn-13">Đặt lại</button>
+                        <button type="submit" class="awe-btn awe-btn-13">Reset</button>
                     </div>
                 <span class="account-desc">
-                    <a href="{{ url('/') }}">Quay lại trang chủ!</a>
+                    <a href="{{ url('/') }}">Back to home page!</a>
                 </span>
                 </form>
             </div>

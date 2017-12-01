@@ -12,5 +12,4 @@
     <!-- CHECK AVAILABILITY -->
     @include('hotel.layouts.checkAvailability')
     <!-- END / CHECK AVAILABILITY -->
-    <h1>TRANG CHỦ</h1>
 @stop
