@@ -36,12 +36,10 @@
                         <td>{{$rs->name}}</td>
                         <td>{{number_format($rs->price,0,",",".") }}</td>
                         <td style="width: 70px;">
-                            @if($rs->status == 0)
-                                {{'Trả phòng'}}
-                            @elseif($rs->status == 1)
-                                {{'Đã đặt'}}
-                            @else()
-                                {{'Đang ở'}}
+                            @if($rs->status == 1)
+                                {{'Hết phòng'}}
+                            @elseif($rs->status == 2)
+                                {{'Phòng trống'}}
                             @endif
                         </td>
                         <td>{{$rs->description}}</td>

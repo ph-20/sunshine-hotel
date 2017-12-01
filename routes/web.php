@@ -73,7 +73,7 @@ Route::group(['prefix' => 'admin'], function () {
 // Home page
 Route::group(['prefix' => 'seachroom'], function () {
     Route::get('/seachroomfor2people', ['as' => 'seachroom.seachroomfor2people',
-    'uses' => 'RoomController@seachroomfor2people']);
+        'uses' => 'RoomController@seachroomfor2people']);
     Route::get('/seachroomfor4people', ['as' => 'seachroom.seachroomfor4people',
         'uses' => 'RoomController@seachroomfor4people']);
     Route::get('/seachroomfor6people', ['as' => 'seachroom.seachroomfor6people',
@@ -92,4 +92,15 @@ Route::group(['prefix' => 'seachroom'], function () {
         'uses' => 'RoomController@detailroom']);
     Route::post('/seach', ['as' => 'seachroom.seachroom',
         'uses' => 'RoomController@seachroom']);
+});
+// Route Group Cart
+Route::group(['prefix' => 'carts'], function () {
+    Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
+    Route::get('show', ['as' => 'carts.show', 'uses' => 'BookingController@getShow']);
+    Route::get('addCart/{id}', ['as' => 'carts.add', 'uses' => 'BookingController@addCart']);
+    Route::get('edit/{id}', ['as' => 'carts.edit', 'uses' => 'BookingController@getEdit']);
+    Route::post('edit/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
+    Route::get('create/{id}', ['as' => 'carts.create', 'uses' => 'BookingController@getCreate']);
+    Route::post('create', ['as' => 'carts.store', 'uses' => 'BookingController@postCreate']);
+    Route::get('delete/{id}', ['as' => 'carts.destroy', 'uses' => 'BookingController@getDelete']);
 });

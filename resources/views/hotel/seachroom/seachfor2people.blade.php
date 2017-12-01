@@ -3,7 +3,7 @@
     @include('hotel.layouts.subBanner')
 @endsection
 @section('content')
-    <h1>List All Room For 2 PeoPle</h1>
+    <h1 style="padding-left:10px;">List All Room For 2 PeoPle</h1>
     <section class="section-room bg-white">
         <div class="container">
             <div class="room-wrap-1">
@@ -26,8 +26,11 @@
                                 <div class="bot">
                                     <span class="price">Starting <span class="amout">{{number_format($room->price) }}
                                             VNĐ</span> /days</span>
-                                    <a href="{{ route('seachroom.detailroom', $room->id) }}" class="awe-btn awe-btn-13">VIEW
+                                    <a href="{{ route('seachroom.detailroom', $room->id) }}" class="awe-btn
+                                    awe-btn-13">VIEW
                                         DETAILS</a>
+                                    <a href="{{ route('carts.add', $room->id) }}" class="awe-btn
+                                    awe-btn-10">Booking</a>
                                 </div>
                             </div>
                         </div>
