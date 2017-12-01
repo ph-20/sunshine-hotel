@@ -103,7 +103,7 @@ class BookingController extends Controller
     {
     }
 
-    public function postCreate(Request $request)
+    public function postCreate()
     {
     }
 
