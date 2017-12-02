@@ -23,7 +23,7 @@
                                     </ul>
                                 </div>
                                 <div class="bot">
-                                    <span class="price">Starting <span class="amout">{{$room->price	}}VNĐ</span> /days</span>
+                                    <span class="price">Starting <span class="amout">{{number_format($room->price,0,",",".")}}VNĐ</span> /days</span>
                                     <a href="{{ route('seachroom.detailroom', $room->id) }}" class="awe-btn awe-btn-13">VIEW
                                         DETAILS</a>
                                 </div>
