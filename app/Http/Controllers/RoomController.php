@@ -210,9 +210,9 @@ class RoomController extends Controller
             })
             ->get();
         if (count($rooms) == 0) {
-            return redirect('/message');
+            return view('hotel.seachroom.message');
         } else {
-            return view('hotel.seachroom.detailallroom', compact('rooms'));
+            return view('hotel.seachroom.detaiallroomseach', compact('rooms'));
         }
     }
 }

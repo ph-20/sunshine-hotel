@@ -24,7 +24,8 @@
                                 </div>
                                 <div class="bot">
                                     <span class="price">Starting <span class="amout">{{$room->price	}}VNĐ</span> /days</span>
-                                    <a href="{{ route('seachroom.detailroom', $room->id) }}" class="awe-btn awe-btn-13">VIEW DETAILS</a>
+                                    <a href="{{ route('seachroom.detailroom', $room->id) }}" class="awe-btn awe-btn-13">VIEW
+                                        DETAILS</a>
                                 </div>
                             </div>
                         </div>
