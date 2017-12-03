@@ -4,9 +4,9 @@
     <div class="header_top">
         <div class="container">
             <div class="header_left float-left">
-                <span><i class="lotus-icon-location"></i> 92 Quang Trung, City Da Nang</span>
+                <span><i class="lotus-icon-location"></i> 92 Quang Trung, Da Nang City</span>
                 @auth
-                <span><i class="lotus-icon-person"></i> Xin chào: {{ Auth::user()->getName() }}</span>
+                <span><i class="lotus-icon-person"></i> Welcome to Sunshine Hotel: {{ Auth::user()->getName() }}</span>
                 @endauth
             </div>
             <div class="header_right float-right">

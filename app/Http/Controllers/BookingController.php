@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Validator;
 use Cart;
@@ -10,6 +11,16 @@ use App\Room;
 
 class BookingController extends Controller
 {
+//    function checkLogin()
+//    {
+//        if (Auth::check()) {
+//
+//        }
+//        else{
+//            //chưa đăng nhập.
+//        }
+//    }
+
     // List
     public function getList()
     {
@@ -73,6 +84,7 @@ class BookingController extends Controller
     public function getShow()
     {
         $cart = Cart::content();
+        //dd($cart);
         $subtotal = Cart::subtotal(0, '.', ',');
         $count = Cart::count();
         return view('hotel.seachroom.shoppingcart', compact('cart', 'subtotal', 'count'));
@@ -90,6 +102,7 @@ class BookingController extends Controller
                 'price' => $room->price,
                 'options' =>
                     [
+                        'user' => $room->users->id,
                         'roomtype' => $room->roomTypes->name,
                         'person' => $room->amount_people,
                         'image' => $room->image1
@@ -99,13 +112,15 @@ class BookingController extends Controller
         return redirect()->route('carts.show');
     }
 
-    // Create
-    public function getCreate()
+    // Booking Detail
+    public function getBookingDetail()
     {
-    }
-
-    public function postCreate()
-    {
+        $users = User::all();
+        $cart = Cart::content();
+        $subtotal = Cart::subtotal(0, '.', ',');
+        $count = Cart::count();
+        //dd($users);
+        return view('hotel.seachroom.bookingdetail', compact('users', 'cart', 'count', 'subtotal'));
     }
 
     // Delete

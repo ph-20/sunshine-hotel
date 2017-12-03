@@ -15,11 +15,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+// Admin login
+Route::get('admin/login', ['as' => 'adminlogin', 'uses' => 'UserController@getAdminLogin']);
+Route::post('admin/login', ['as' => 'updateLogin', 'uses' => 'UserController@postAdminLogin']);
+Route::get('admin/logout', ['as' => 'adminlogout', 'uses' => 'UserController@getAdminLogout']);
+
 
 // Route Group Admin
 Route::group(['prefix' => 'admin'], function () {
     // Route Group Room
-    Route::group(['prefix' => 'rooms'], function () {
+    Route::group(['prefix' => 'rooms', 'middleware' => 'adminLogin'], function () {
         Route::get('list', ['as' => 'rooms.index', 'uses' => 'RoomController@getList']);
         Route::get('edit/{id}', ['as' => 'rooms.edit', 'uses' => 'RoomController@getEdit']);
         Route::post('edit/{id}', ['as' => 'rooms.update', 'uses' => 'RoomController@postEdit']);
@@ -97,10 +102,10 @@ Route::group(['prefix' => 'seachroom'], function () {
 Route::group(['prefix' => 'carts'], function () {
     Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
     Route::get('show', ['as' => 'carts.show', 'uses' => 'BookingController@getShow']);
+    Route::get('bookingDetail', ['as' => 'carts.detail', 'uses' => 'BookingController@getBookingDetail'])->name('checkRole');
+    Route::post('bookingDetail/{id}', ['as' => 'carts.updateDetail', 'uses' => 'BookingController@postBookingDetail']);
     Route::get('addCart/{id}', ['as' => 'carts.add', 'uses' => 'BookingController@addCart']);
     Route::get('edit/{id}', ['as' => 'carts.edit', 'uses' => 'BookingController@getEdit']);
     Route::post('edit/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
-    Route::get('create/{id}', ['as' => 'carts.create', 'uses' => 'BookingController@getCreate']);
-    Route::post('create', ['as' => 'carts.store', 'uses' => 'BookingController@postCreate']);
     Route::get('delete/{id}', ['as' => 'carts.destroy', 'uses' => 'BookingController@getDelete']);
 });

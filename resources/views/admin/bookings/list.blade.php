@@ -15,7 +15,7 @@
             <thead>
             <tr align="center">
                 <th>No</th>
-                <th>Name</th>
+                <th>Name User</th>
                 <th>Email</th>
                 <th>Check-in</th>
                 <th>Check-out</th>
@@ -32,7 +32,7 @@
             @foreach($booking as $list)
                 <tr class="even gradeC" align="center">
                     <td>{{$i++}}</td>
-                    <td>{{$list->users->first_name}} {{$list->users->last_name}}</td>
+                    <td>{{$list->users->last_name}} {{$list->users->first_name}} </td>
                     <td>{{$list->users->email}}</td>
                     <td>{{$list->check_in}}</td>
                     <td>{{$list->check_out}}</td>

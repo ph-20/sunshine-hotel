@@ -8,6 +8,7 @@ use App\Http\Requests\CheckEditUserRequest;
 use App\Http\Requests\CheckPasswordUserRequest;
 use App\User;
 use Toastr;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -57,5 +58,39 @@ class UserController extends Controller
         $user->delete();
         Toastr::info('Delete Thanh Cong');
         return redirect()->route('users.index');
+    }
+
+    // Admin login
+    public function getAdminLogin()
+    {
+        return view('admin.users.login');
+    }
+
+    public function postAdminLogin(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'email' => 'required',
+                'password' => 'required|min:3|max:40'
+            ],
+            [
+                'email.required' => 'Bạn chưa nhập email',
+                'password.required' => 'Bạn chưa nhập mật khẩu',
+                'password.min' => 'Mật khẩu phải có độ dài tối thiểu 3 ký tự',
+                'password.max' => 'Mật khẩu có độ dài tối đa 50 ký tự'
+            ]
+        );
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->route('rooms.index');
+        } else {
+            return redirect()->route('adminlogin')->with('message', 'Sai email hoặc mật khẩu không đúng');
+        }
+    }
+
+    public function getAdminLogout()
+    {
+        Auth::logout();
+        return redirect()->route('adminlogin');
     }
 }
