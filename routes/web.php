@@ -102,7 +102,7 @@ Route::group(['prefix' => 'seachroom'], function () {
 Route::group(['prefix' => 'carts'], function () {
     Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
     Route::get('show', ['as' => 'carts.show', 'uses' => 'BookingController@getShow']);
-    Route::get('bookingDetail', ['as' => 'carts.detail', 'uses' => 'BookingController@getBookingDetail'])->name('checkRole');
+    Route::get('bookingDetail/{id}', ['as' => 'carts.detail', 'uses' => 'BookingController@getBookingDetail']);
     Route::post('bookingDetail/{id}', ['as' => 'carts.updateDetail', 'uses' => 'BookingController@postBookingDetail']);
     Route::get('addCart/{id}', ['as' => 'carts.add', 'uses' => 'BookingController@addCart']);
     Route::get('edit/{id}', ['as' => 'carts.edit', 'uses' => 'BookingController@getEdit']);

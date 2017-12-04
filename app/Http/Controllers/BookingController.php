@@ -8,6 +8,7 @@ use Validator;
 use Cart;
 use App\Booking;
 use App\Room;
+use App\BookRoom;
 
 class BookingController extends Controller
 {
@@ -102,7 +103,6 @@ class BookingController extends Controller
                 'price' => $room->price,
                 'options' =>
                     [
-                        'user' => $room->users->id,
                         'roomtype' => $room->roomTypes->name,
                         'person' => $room->amount_people,
                         'image' => $room->image1
@@ -113,14 +113,18 @@ class BookingController extends Controller
     }
 
     // Booking Detail
-    public function getBookingDetail()
+    public function getBookingDetail($id)
     {
-        $users = User::all();
+        $users = User::find($id);
         $cart = Cart::content();
         $subtotal = Cart::subtotal(0, '.', ',');
-        $count = Cart::count();
-        //dd($users);
         return view('hotel.seachroom.bookingdetail', compact('users', 'cart', 'count', 'subtotal'));
+    }
+
+    // Update Booking Detail
+    public function postBookingDetail()
+    {
+
     }
 
     // Delete

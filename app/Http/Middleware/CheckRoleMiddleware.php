@@ -19,13 +19,8 @@ class CheckRoleMiddleware
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role == 2)
-                return $next($request);
-            else
-                return redirect()->route('login');
-        } else {
-            return redirect()->route('login');
+            return $user->role == 2 ? $next($request) : redirect()->route('carts.detail');
         }
-        return $next($request);
+        return redirect()->route('login');
     }
 }

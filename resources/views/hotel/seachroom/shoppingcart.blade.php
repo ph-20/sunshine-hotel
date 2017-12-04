@@ -19,7 +19,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>Qty</th>
                                 <th>Person</th>
                                 <th>Room Type</th>
                                 <th>Image</th>
@@ -33,7 +32,6 @@
                                 <tr style="text-align: center; font-size: 120%;">
                                     <td>{{$i++}}</td>
                                     <td>{{$item->name}}</td>
-                                    <td>{{$item->qty}}</td>
                                     <td>{{$item->options->person}}</td>
                                     <td>{{$item->options->roomtype}}</td>
                                     <td style="width: 210px;"><img src="{{asset($item->options->image)}}" alt=""
@@ -63,8 +61,14 @@
                                             <span class="bold totalamout"><h4>{{ $subtotal }}</h4></span></td>
                                     </tr>
                                 </table>
-                                <a href="{{ route('carts.detail') }}" class="awe-btn awe-btn-13">
-                                    Confirm Booking
+                                <a href="
+                                @if(Auth::check())
+                                {{ route('carts.detail', Auth::user()->id) }}
+                                @else
+                                {{ route('login') }}
+                                @endif"
+                                   class="awe-btn awe-btn-13 pull-right">
+                                    Checkout
                                 </a>
 
                             </div>
