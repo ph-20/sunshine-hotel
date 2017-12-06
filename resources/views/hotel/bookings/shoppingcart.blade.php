@@ -67,7 +67,7 @@
                                 @else
                                 {{ route('login') }}
                                 @endif"
-                                   class="awe-btn awe-btn-13 pull-right">
+                                   class="awe-btn awe-btn-13 pull-left">
                                     Checkout
                                 </a>
 

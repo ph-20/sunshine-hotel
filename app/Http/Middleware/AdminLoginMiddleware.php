@@ -19,10 +19,11 @@ class AdminLoginMiddleware
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role == 1)
+            if ($user->role == 1) {
                 return $next($request);
-            else
+            } else {
                 return redirect()->route('adminlogin')->with('message', 'Bạn phải có quyền Admin để đăng nhập');
+            }
         } else {
             return redirect()->route('adminlogin');
         }

@@ -4,24 +4,16 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Validator;
 use Cart;
 use App\Booking;
 use App\Room;
 use App\BookRoom;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-//    function checkLogin()
-//    {
-//        if (Auth::check()) {
-//
-//        }
-//        else{
-//            //chưa đăng nhập.
-//        }
-//    }
-
     // List
     public function getList()
     {
@@ -88,7 +80,7 @@ class BookingController extends Controller
         //dd($cart);
         $subtotal = Cart::subtotal(0, '.', ',');
         $count = Cart::count();
-        return view('hotel.seachroom.shoppingcart', compact('cart', 'subtotal', 'count'));
+        return view('hotel.bookings.shoppingcart', compact('cart', 'subtotal', 'count'));
     }
 
     // Add Cart
@@ -118,13 +110,45 @@ class BookingController extends Controller
         $users = User::find($id);
         $cart = Cart::content();
         $subtotal = Cart::subtotal(0, '.', ',');
-        return view('hotel.seachroom.bookingdetail', compact('users', 'cart', 'count', 'subtotal'));
+        return view('hotel.bookings.bookingdetail', compact('users', 'cart', 'count', 'subtotal'));
     }
 
     // Update Booking Detail
-    public function postBookingDetail()
+    public function postBookingDetail(Request $request)
     {
+        $arrival = date("Y-m-d", strtotime($request->checkin));
+        $departure = date("Y-m-d", strtotime($request->checkout));
+        $cart = Cart::content();
+        $subtotal = Cart::subtotal(0, '.', ',');
+        $booking = new Booking;
+        $booking->user_id = Auth::user()->id;
+        $booking->check_in = $arrival;
+        $booking->check_out = $departure;
+        $booking->code = $request->code;
+        $booking->status = 1;
+        $booking->total = (double)$subtotal;
+        $booking->promotion_id = 1;
+        $booking->save();
 
+        foreach ($cart as $row) {
+            $book_room = new BookRoom();
+            $book_room->room_id = $row->id;
+            $book_room->booking_id = $booking->id;
+            $book_room->save();
+        }
+        Session::forget('/carts/show');
+        return redirect()->route('carts.review');
+    }
+
+    //Get Review
+    public function getReview()
+    {
+        $bookings = Booking::where('user_id', Auth::id())->get();
+        foreach ($bookings as $bk) {
+            if ($bk->user_id == Auth::id()) {
+                return view('hotel.bookings.review', compact('bookings'));
+            }
+        }
     }
 
     // Delete

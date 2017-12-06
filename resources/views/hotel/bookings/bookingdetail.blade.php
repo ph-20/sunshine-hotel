@@ -5,7 +5,7 @@
 @section('content')
     <p>
     <h2 style="padding-left:50px; ">DETAIL BOOKING
-        <small>{{ Auth::user()->getName() }}</small>
+        <small>{{Auth::user()->last_name}} {{Auth::user()->first_name }}</small>
     </h2></p>
     <section class="section-room bg-white">
         <div class="container">
@@ -26,9 +26,12 @@
                                             <hr>
                                             <p>Address: {{ Auth::user()->address }}</p>
                                             <hr>
-                                            <p>Requiment: Checkin - Checkout</p>
                                             <form action="{{ route('carts.updateDetail', Auth::user()->id) }}" method="post">
                                                 {{ csrf_field() }}
+                                                <p>Booking code:<b><input type="text" style="border: none;"
+                                                                          name="code" readonly="readonly" value="{{ (strtoupper(str_random(6))) }}"></b></p>
+                                                <hr>
+                                                <p>Requiment: Checkin - Checkout</p>
                                                 <div class="availability-form">
                                                     <input type="text" style="border: 2px solid #e1bd85;" name="checkin"
                                                            class="awe-calendar
@@ -37,7 +40,7 @@
                                                     <input type="text" style="border: 2px solid #e1bd85;"
                                                            name="checkout" class="awe-calendar to"
                                                            placeholder="Departure Date">
-                                                    <p></p>
+                                                    <hr>
                                                     <div class="vailability-submit">
                                                         <button class="awe-btn awe-btn-13"
                                                                 type="submit">Confirm Booking</button>
@@ -63,12 +66,12 @@
                                             @foreach($cart as $item)
                                                 <div class="cart-item">
                                                     <div class="media">
-                                                            <img style="width: 210px;"
-                                                                 src="{{asset($item->options->image)}}" alt="">
+                                                        <img style="width: 210px;"
+                                                             src="{{asset($item->options->image)}}" alt="">
                                                         <div class="media-body pull-right" style="padding-right:
                                                         170px;">
                                                             <span
-                                                                    class="cart-item-title">Room:
+                                                                    class="cart-item-title">
                                                                 {{$item->name}}</span><br>
                                                             <span>Price: {{number_format($item->price)}} Vnd</span><br>
                                                             <span>Person: {{$item->options->person}}</span><br>
@@ -78,7 +81,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-                                                <span class="bold totalamout"><h4>Total Vnd: <b>{{ $subtotal
+                                            <span class="bold totalamout"><h4>Total Vnd: <b>{{ $subtotal
                                                 }}</b></h4></span>
                                         </div>
                                     </div>
