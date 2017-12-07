@@ -111,7 +111,7 @@ class BookingController extends Controller
         $users = User::find($id);
         $cart = Cart::content();
         $subtotal = Cart::subtotal(0, '.', '');
-        return view('hotel.bookings.bookingdetail', compact('users', 'cart', 'count', 'subtotal'));
+        return view('hotel.bookings.bookingdetail', compact('users', 'cart', 'subtotal'));
     }
 
     // Update Booking Detail
@@ -138,6 +138,7 @@ class BookingController extends Controller
             $book_room->save();
         }
         Cart::destroy();
+        $this->postReview($booking);
         return redirect()->route('carts.review');
     }
 
@@ -152,19 +153,18 @@ class BookingController extends Controller
         }
     }
 
+    private function postReview($booking)
+    {
+        Mail::send('hotel.mail', ['booking' => $booking], function ($m) {
+            $m->from('hoangninh30496dn@gmail.com', 'Ninh Nguyễn Hữu Hoàng');
+            $m->to(Auth::user()->email, 'Customer')->subject('Booking Code from Sunshine Hotel');
+        });
+    }
+
     // Delete
     public function getDelete($id)
     {
         Cart::remove($id);
         return redirect()->route('carts.show');
-    }
-
-    public function mailOrder()
-    {
-        Mail::send('hotel.mail', ['cart' => 'ten gio hang'], function ($m) {
-            //$m->from('hoangninh30496dn@gmail.com', 'ten nguoi gui');
-
-            $m->to('hoangninh30496@gmail.com', 'ten nguoi nhan mail')->subject('Tieu de email!');
-        });
     }
 }

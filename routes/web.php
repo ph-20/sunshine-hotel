@@ -103,6 +103,7 @@ Route::group(['prefix' => 'carts'], function () {
     Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
     Route::get('show', ['as' => 'carts.show', 'uses' => 'BookingController@getShow']);
     Route::get('review', ['as' => 'carts.review', 'uses' => 'BookingController@getReview']);
+    Route::post('review', ['as' => 'carts.updatereview', 'uses' => 'BookingController@postReview']);
     Route::get('bookingDetail/{id}', ['as' => 'carts.detail', 'uses' => 'BookingController@getBookingDetail']);
     Route::post('bookingDetail/{id}', ['as' => 'carts.updateDetail', 'uses' => 'BookingController@postBookingDetail']);
     Route::get('addCart/{id}', ['as' => 'carts.add', 'uses' => 'BookingController@addCart']);
@@ -110,5 +111,3 @@ Route::group(['prefix' => 'carts'], function () {
     Route::post('edit/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
     Route::get('delete/{id}', ['as' => 'carts.destroy', 'uses' => 'BookingController@getDelete']);
 });
-
-Route::get('mail', 'BookingController@mailOrder');
