@@ -110,3 +110,5 @@ Route::group(['prefix' => 'carts'], function () {
     Route::post('edit/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
     Route::get('delete/{id}', ['as' => 'carts.destroy', 'uses' => 'BookingController@getDelete']);
 });
+
+Route::get('mail', 'BookingController@mailOrder');

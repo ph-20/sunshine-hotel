@@ -11,6 +11,7 @@ use App\Booking;
 use App\Room;
 use App\BookRoom;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 
 class BookingController extends Controller
 {
@@ -109,7 +110,7 @@ class BookingController extends Controller
     {
         $users = User::find($id);
         $cart = Cart::content();
-        $subtotal = Cart::subtotal(0, '.', ',');
+        $subtotal = Cart::subtotal(0, '.', '');
         return view('hotel.bookings.bookingdetail', compact('users', 'cart', 'count', 'subtotal'));
     }
 
@@ -119,14 +120,14 @@ class BookingController extends Controller
         $arrival = date("Y-m-d", strtotime($request->checkin));
         $departure = date("Y-m-d", strtotime($request->checkout));
         $cart = Cart::content();
-        $subtotal = Cart::subtotal(0, '.', ',');
+        $subtotal = Cart::subtotal(0, '.', '');
         $booking = new Booking;
         $booking->user_id = Auth::user()->id;
         $booking->check_in = $arrival;
         $booking->check_out = $departure;
         $booking->code = $request->code;
         $booking->status = 1;
-        $booking->total = (double)$subtotal;
+        $booking->total = $subtotal;
         $booking->promotion_id = 1;
         $booking->save();
 
@@ -136,7 +137,7 @@ class BookingController extends Controller
             $book_room->booking_id = $booking->id;
             $book_room->save();
         }
-        Session::forget('/carts/show');
+        Cart::destroy();
         return redirect()->route('carts.review');
     }
 
@@ -156,5 +157,14 @@ class BookingController extends Controller
     {
         Cart::remove($id);
         return redirect()->route('carts.show');
+    }
+
+    public function mailOrder()
+    {
+        Mail::send('hotel.mail', ['cart' => 'ten gio hang'], function ($m) {
+            //$m->from('hoangninh30496dn@gmail.com', 'ten nguoi gui');
+
+            $m->to('hoangninh30496@gmail.com', 'ten nguoi nhan mail')->subject('Tieu de email!');
+        });
     }
 }
