@@ -77,7 +77,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function () {
     Route::group(['prefix' => 'bookingManager'], function () {
         Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
         Route::post('list/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
-        Route::get('detailBooking/{id}', ['as' => 'bookingManager.show', 'uses' => 'BookingController@getEdit'])->middleware('customer');
+        Route::get('detailBooking/{id}', ['as' => 'bookingManager.show', 'uses' => 'BookingController@getEdit'])
+            ->middleware('customer');
         Route::post('detailBooking/{id}', ['as' => 'bookingManager.destroy', 'uses' => 'BookingController@postDB']);
     });
 });

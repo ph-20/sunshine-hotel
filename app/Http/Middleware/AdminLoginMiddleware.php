@@ -21,8 +21,8 @@ class AdminLoginMiddleware
             return $next($request);
         } else {
             if (Auth::user()->role == 0) {
-                return redirect()->route('bookingManager.show', Auth::user()->id)->with('message', 'Hệ Thống Tự Động Chuyển Bạn Về Trang Với
-                Quyền Quản Lý Tương Ứng');
+                return redirect()->route('bookingManager.show', Auth::user()->id)->with('message',
+                    'Hệ Thống Tự Động Chuyển Bạn Về Trang Với Quyền Quản Lý Tương Ứng');
             } elseif (Auth::user()->active == 1) {
                 return redirect()->route('adminlogin')->with('message', 'Tài khoản bạn đã bị khóa');
             }
