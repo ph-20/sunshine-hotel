@@ -45,10 +45,12 @@
                             Nhận phòng
                         @elseif($list->status == 3)
                             Trả phòng
+                        @elseif($list->status ==  4)
+                            Hủy phòng
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('carts.edit',$list->id)}}">Chi Tiết</a>
+                        <a href="{{route('bookingManager.show',$list->id)}}">Chi Tiết</a>
                     </td>
 
                     <td class="center">
@@ -65,14 +67,16 @@
                                 {{csrf_field()}}
                                 {{method_field('PUT')}}
                                 <button class="btn btn-primary" style="padding: 2px">
-                                    Check-in</button>
+                                    Check-in
+                                </button>
                             </form>
                         @elseif($list->status == 3)
                             <form action="{{route('carts.update',[$list->id,'status'=>4])}}" method="POST">
                                 {{csrf_field()}}
                                 {{method_field('PUT')}}
                                 <button class="btn btn-success" style="padding: 2px">
-                                    Check-out</button>
+                                    Check-out
+                                </button>
                             </form>
                         @endif
                     </td>

@@ -22,7 +22,7 @@ Route::get('admin/logout', ['as' => 'adminlogout', 'uses' => 'UserController@get
 
 
 // Route Group Admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'login'], function () {
     // Route Group Room
     Route::group(['prefix' => 'rooms', 'middleware' => 'adminLogin'], function () {
         Route::get('list', ['as' => 'rooms.index', 'uses' => 'RoomController@getList']);
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', ['as' => 'rooms.destroy', 'uses' => 'RoomController@getDelete']);
     });
     // Route Group Room Type
-    Route::group(['prefix' => 'roomtypes'], function () {
+    Route::group(['prefix' => 'roomtypes', 'middleware' => 'adminLogin'], function () {
         Route::get('list', ['as' => 'roomtypes.index', 'uses' => 'RoomTypeController@getList']);
         Route::get('edit/{id}', ['as' => 'roomtypes.edit', 'uses' => 'RoomTypeController@getEdit']);
         Route::post('edit/{id}', ['as' => 'roomtypes.update', 'uses' => 'RoomTypeController@postEdit']);
@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', ['as' => 'roomtypes.destroy', 'uses' => 'RoomTypeController@getDelete']);
     });
     // Route Group Service
-    Route::group(['prefix' => 'services'], function () {
+    Route::group(['prefix' => 'services', 'middleware' => 'adminLogin'], function () {
         Route::get('list', ['as' => 'services.index', 'uses' => 'ServiceController@getList']);
         Route::get('edit/{id}', ['as' => 'services.edit', 'uses' => 'ServiceController@getEdit']);
         Route::post('edit/{id}', ['as' => 'services.update', 'uses' => 'ServiceController@postEdit']);
@@ -51,14 +51,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', ['as' => 'services.destroy', 'uses' => 'ServiceController@getDelete']);
     });
     // Route Group Manager Booking
-    Route::group(['prefix' => 'bookings'], function () {
+    Route::group(['prefix' => 'bookings', 'middleware' => 'adminLogin'], function () {
         Route::get('list', ['as' => 'bookings.index', 'uses' => 'BookingRoomController@getList']);
         Route::get('detail/{id}', ['as' => 'bookings.detail', 'uses' => 'BookingRoomController@getDetail']);
         Route::get('/{booking_id}/{room_id}', 'BookingRoomController@getCreate');
         Route::post('/{booking_id}/{room_id}', 'BookingRoomController@postCreate');
         Route::get('/service/delete/{id}', ['as' => 'bookings.destroy', 'uses' => 'BookingRoomController@getDelete']);
     });
-    Route::group(['prefix' => 'users'], function () {
+    Route::group(['prefix' => 'users', 'middleware' => 'adminLogin'], function () {
         Route::get('/', ['as' => 'users.index', 'uses' => 'UserController@home']);
         Route::get('index', ['as' => 'users.index', 'uses' => 'UserController@index']);
         Route::get('changepassword/{id}', ['as' => 'users.changepassword', 'uses' => 'UserController@changepassword']);
@@ -67,12 +67,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('{user}', ['as' => 'users.update', 'uses' => 'UserController@update']);
         Route::delete('{user}', ['as' => 'users.destroy', 'uses' => 'UserController@delete']);
     });
-    Route::group(['prefix' => 'promotions'], function () {
+    Route::group(['prefix' => 'promotions', 'middleware' => 'adminLogin'], function () {
         Route::get('/', ['as' => 'promotions.index', 'uses' => 'PromotionController@home']);
         Route::get('index', ['as' => 'promotions.index', 'uses' => 'PromotionController@index']);
         Route::get('create', ['as' => 'promotions.create', 'uses' => 'PromotionController@create']);
         Route::post('/', ['as' => 'promotions.save', 'uses' => 'PromotionController@save']);
         Route::delete('{promotion}', ['as' => 'promotions.destroy', 'uses' => 'PromotionController@delete']);
+    });
+    Route::group(['prefix' => 'bookingManager'], function () {
+        Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
+        Route::post('list/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
+        Route::get('detailBooking/{id}', ['as' => 'bookingManager.show', 'uses' => 'BookingController@getEdit'])->middleware('customer');
+        Route::post('detailBooking/{id}', ['as' => 'bookingManager.destroy', 'uses' => 'BookingController@postDB']);
     });
 });
 // Home page
@@ -100,14 +106,11 @@ Route::group(['prefix' => 'seachroom'], function () {
 });
 // Route Group Cart
 Route::group(['prefix' => 'carts'], function () {
-    Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
     Route::get('show', ['as' => 'carts.show', 'uses' => 'BookingController@getShow']);
     Route::get('review', ['as' => 'carts.review', 'uses' => 'BookingController@getReview']);
     Route::post('review', ['as' => 'carts.updatereview', 'uses' => 'BookingController@postReview']);
     Route::get('bookingDetail/{id}', ['as' => 'carts.detail', 'uses' => 'BookingController@getBookingDetail']);
     Route::post('bookingDetail/{id}', ['as' => 'carts.updateDetail', 'uses' => 'BookingController@postBookingDetail']);
     Route::get('addCart/{id}', ['as' => 'carts.add', 'uses' => 'BookingController@addCart']);
-    Route::get('edit/{id}', ['as' => 'carts.edit', 'uses' => 'BookingController@getEdit']);
-    Route::post('edit/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
     Route::get('delete/{id}', ['as' => 'carts.destroy', 'uses' => 'BookingController@getDelete']);
 });

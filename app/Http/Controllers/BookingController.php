@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Validator;
 use Cart;
 use App\Booking;
@@ -15,66 +14,75 @@ use Mail;
 
 class BookingController extends Controller
 {
-    // List
+    // Danh sách quản lý đặt phòng của admin
     public function getList()
     {
         $booking = Booking::where('status', '!=', 3)->where('status', '!=', 4)->get();
         return view('admin.bookings.list', compact('booking'));
     }
 
-    // Edit
+    // Update danh sách booking
+    public function postEdit(Request $request, $id)
+    {
+        $booking = Booking::findOrFail($id);
+        $status = $request->status;
+        $listRoom = $booking->rooms;
+//        if ($status == 2) {
+//            $booking->status = $status;
+//            foreach ($listRoom as $list) {
+//                $list->status = 1;
+//                $list->update();
+//            }
+//            $booking->update();
+//            return redirect()->route('carts.index')->with('message', 'Xác nhận thành công');
+//        }
+//        if ($status == 3) {
+//            $booking->status = $status;
+//            $booking->check_in = date('Y-m-d h-i-s');
+//            foreach ($listRoom as $list) {
+//                $list->status = 1;
+//                $list->update();
+//            }
+//            $booking->update();
+//            return redirect()->back()->withSuccess('Đã Check-in Đơn Đặt Phòng Có Id : ' . $booking->id);
+//        }
+//        if ($status == 4) {
+//            $booking->status = $status;
+//            $booking->check_out = date('Y-m-d h-i-s');
+//            foreach ($listRoom as $list) {
+//                $list->status = 2;
+//                $list->update();
+//            }
+//            $booking->update();
+//            return redirect()->back()->withSuccess('Đã Check-out Đơn Đặt Phòng Có Id : ' . $booking->id);
+//        }
+//        if ($status == 5) {
+//            $booking->status = $status;
+//            foreach ($listRoom as $list) {
+//                $list->status = 2;
+//                $list->update();
+//            }
+//            $booking->update();
+//            return redirect()->back()->withSuccess('Đã Hủy Đơn Đặt Phòng Có Id :' . $booking->id);
+//        }
+    }
+
+    // Hiển thị thông tin chi tiết đặt phòng của customer
     public function getEdit($id)
     {
         $booking = Booking::findOrFail($id);
         return view('admin.bookings.detail', compact('booking'));
     }
 
-    public function postEdit(Request $request, $id)
+    // Update thông tin booking customer
+    public function postDB($id)
     {
-        $booking = Booking::findOrFail($id);
-        $status = $request->status;
-        $listRoom = $booking->rooms;
-        if ($status == 2) {
-            $booking->status = $status;
-            foreach ($listRoom as $list) {
-                $list->status = 1;
-                $list->update();
-            }
-            $booking->update();
-            return redirect()->route('carts.index')->with('message', 'Xác nhận thành công');
-        }
-        if ($status == 3) {
-            $booking->status = $status;
-            $booking->check_in = date('Y-m-d h-i-s');
-            foreach ($listRoom as $list) {
-                $list->status = 1;
-                $list->update();
-            }
-            $booking->update();
-            return redirect()->back()->withSuccess('Đã Check-in Đơn Đặt Phòng Có Id : ' . $booking->id);
-        }
-        if ($status == 4) {
-            $booking->status = $status;
-            $booking->check_out = date('Y-m-d h-i-s');
-            foreach ($listRoom as $list) {
-                $list->status = 2;
-                $list->update();
-            }
-            $booking->update();
-            return redirect()->back()->withSuccess('Đã Check-out Đơn Đặt Phòng Có Id : ' . $booking->id);
-        }
-        if ($status == 5) {
-            $booking->status = $status;
-            foreach ($listRoom as $list) {
-                $list->status = 2;
-                $list->update();
-            }
-            $booking->update();
-            return redirect()->back()->withSuccess('Đã Hủy Đơn Đặt Phòng Có Id :' . $booking->id);
-        }
+        $bookRoom = BookRoom::findOrFail($id);
+        $bookRoom->delete();
+        return redirect()->route('bookingManager.show', Auth::user()->id)->with('message', 'Hủy đơn hàng thành công');
     }
 
-    //Show Cart
+    //Show Cartqlykhachsan@localhost
     public function getShow()
     {
         $cart = Cart::content();
@@ -153,6 +161,7 @@ class BookingController extends Controller
         }
     }
 
+    // Gửi mail
     private function postReview($booking)
     {
         Mail::send('hotel.mail', ['booking' => $booking], function ($m) {
@@ -161,7 +170,7 @@ class BookingController extends Controller
         });
     }
 
-    // Delete
+    // Xóa 1 booking
     public function getDelete($id)
     {
         Cart::remove($id);

@@ -51,6 +51,11 @@
                     </form>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-push-3 btn btn-success">
+                    <a href="{{ url('/') }}"><span style="color: white">Back to Homepage</span></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

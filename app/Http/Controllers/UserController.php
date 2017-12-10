@@ -82,7 +82,11 @@ class UserController extends Controller
             ]
         );
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('rooms.index');
+            if (Auth::user()->role == 1) {
+                return redirect()->route('rooms.index')->with('message', 'Bạn đã đăng nhập với quyền Admin');
+            } elseif (Auth::user()->role == 0) {
+                return redirect()->route('bookingManager.show', Auth::user()->id)->with('message', 'Bạn đã đăng nhập với quyền Customer');
+            }
         } else {
             return redirect()->route('adminlogin')->with('message', 'Sai email hoặc mật khẩu không đúng');
         }

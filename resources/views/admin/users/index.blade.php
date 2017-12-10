@@ -27,7 +27,7 @@
                                     <td>{{++$index}}</td>
                                     <td>{{$user->last_name}} {{$user->first_name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>@if ($user->role == 0) Khach Hang @else Admin @endif</td>
+                                    <td>@if ($user->role == 0) Khách hàng @else Admin @endif</td>
                                     <td>{{$user->phone_number}}</td>
                                     <td>@if ($user->active == 0) Đang Hoạt Động @else Khóa @endif</td>
                                     <td><a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit">

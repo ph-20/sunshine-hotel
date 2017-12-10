@@ -41,7 +41,7 @@
             <!-- HEADER MENU -->
             <nav class="header_menu">
                 <ul class="menu">
-                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ route('adminlogin') }}">Home</a></li>
                     <li>
                         <a href="#">Room <span class="fa fa-caret-down"></span></a>
                         <ul class="sub-menu">
