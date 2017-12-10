@@ -27,44 +27,44 @@ class BookingController extends Controller
         $booking = Booking::findOrFail($id);
         $status = $request->status;
         $listRoom = $booking->rooms;
-//        if ($status == 2) {
-//            $booking->status = $status;
-//            foreach ($listRoom as $list) {
-//                $list->status = 1;
-//                $list->update();
-//            }
-//            $booking->update();
-//            return redirect()->route('carts.index')->with('message', 'Xác nhận thành công');
-//        }
-//        if ($status == 3) {
-//            $booking->status = $status;
-//            $booking->check_in = date('Y-m-d h-i-s');
-//            foreach ($listRoom as $list) {
-//                $list->status = 1;
-//                $list->update();
-//            }
-//            $booking->update();
-//            return redirect()->back()->withSuccess('Đã Check-in Đơn Đặt Phòng Có Id : ' . $booking->id);
-//        }
-//        if ($status == 4) {
-//            $booking->status = $status;
-//            $booking->check_out = date('Y-m-d h-i-s');
-//            foreach ($listRoom as $list) {
-//                $list->status = 2;
-//                $list->update();
-//            }
-//            $booking->update();
-//            return redirect()->back()->withSuccess('Đã Check-out Đơn Đặt Phòng Có Id : ' . $booking->id);
-//        }
-//        if ($status == 5) {
-//            $booking->status = $status;
-//            foreach ($listRoom as $list) {
-//                $list->status = 2;
-//                $list->update();
-//            }
-//            $booking->update();
-//            return redirect()->back()->withSuccess('Đã Hủy Đơn Đặt Phòng Có Id :' . $booking->id);
-//        }
+        if ($status == 2) {
+            $booking->status = $status;
+            foreach ($listRoom as $list) {
+                $list->status = 1;
+                $list->update();
+            }
+            $booking->update();
+            return redirect()->route('carts.index')->with('message', 'Xác nhận thành công');
+        }
+        if ($status == 3) {
+            $booking->status = $status;
+            $booking->check_in = date('Y-m-d h-i-s');
+            foreach ($listRoom as $list) {
+                $list->status = 1;
+                $list->update();
+            }
+            $booking->update();
+            return redirect()->back()->withSuccess('Đã Check-in Đơn Đặt Phòng Có Id : ' . $booking->id);
+        }
+        if ($status == 4) {
+            $booking->status = $status;
+            $booking->check_out = date('Y-m-d h-i-s');
+            foreach ($listRoom as $list) {
+                $list->status = 2;
+                $list->update();
+            }
+            $booking->update();
+            return redirect()->back()->withSuccess('Đã Check-out Đơn Đặt Phòng Có Id : ' . $booking->id);
+        }
+        if ($status == 5) {
+            $booking->status = $status;
+            foreach ($listRoom as $list) {
+                $list->status = 2;
+                $list->update();
+            }
+            $booking->update();
+            return redirect()->back()->withSuccess('Đã Hủy Đơn Đặt Phòng Có Id :' . $booking->id);
+        }
     }
 
     // Hiển thị thông tin chi tiết đặt phòng của customer
