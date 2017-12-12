@@ -121,4 +121,3 @@ Route::group(['prefix' => 'bookingCustomer'], function () {
     Route::get('detail/{id}', ['as' => 'bookingCustomer.detail', 'uses' => 'PageController@getDetail']);
     Route::post('detail/{id}', ['as' => 'bookingCustomer.update', 'uses' => 'PageController@postDetail']);
 });
-

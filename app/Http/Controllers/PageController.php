@@ -13,7 +13,7 @@ class PageController extends Controller
     public function getList()
     {
         $booking = Booking::where('status', '=', '1')->where('user_id', '=', Auth::user()->id)->get();
-        return view('hotel.bookingCustomer.list', compact('booking', 'count'));
+        return view('hotel.bookingCustomer.list', compact('booking'));
     }
 
     // Hủy 1 đơn đặt phòng
