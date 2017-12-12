@@ -50,7 +50,7 @@
                 <a href="#"><i class="fa fa-bars"></i>&nbsp; Manager Booking<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('bookings.index') }}" class="fa fa-list">&nbsp; Booking
+                        <a href="{{ route('bookings.index') }}" class="fa fa-list">&nbsp; Services
                             Room</a>
                     </li>
                     <li>

@@ -37,7 +37,8 @@
                             <div class="text">
                                 <p><i class="lotus-icon-location"></i> 92 Quang Trung, Da Nang City</p>
                                 <p><i class="lotus-icon-phone"></i> 1-548-854-8898</p>
-                                <p><i class="fa fa-envelope-o"></i> <a href="mailto:hello@sunshinehotel.com">hello@thelotushotel.com</a></p>
+                                <p><i class="fa fa-envelope-o"></i> <a href="mailto:hello@sunshinehotel
+                                .com">hello@thesunshinehotel.com</a></p>
                             </div>
                         </div>
                     </div>

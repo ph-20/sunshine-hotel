@@ -59,7 +59,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Mã Số Phòng</th>
-                                <th>Giá</th>
+                                <th>Giá Vnd</th>
                                 <th>Hình ảnh</th>
                                 <th>Loại Phòng</th>
                                 <th>Trạng Thái Phòng</th>
@@ -72,7 +72,7 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$list->rooms->name}}</td>
-                                    <td>{{$list->rooms->price}}</td>
+                                    <td>{{number_format($list->rooms->price)}}</td>
                                     <td style="width: 210px;"><img src="{{asset($list->rooms->image1)}}" alt=""
                                                                    height="100" width="200"></td>
                                     <td>{{$list->rooms->roomTypes->name}}</td>

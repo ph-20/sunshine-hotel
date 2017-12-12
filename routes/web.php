@@ -74,11 +74,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function () {
         Route::post('/', ['as' => 'promotions.save', 'uses' => 'PromotionController@save']);
         Route::delete('{promotion}', ['as' => 'promotions.destroy', 'uses' => 'PromotionController@delete']);
     });
-    Route::group(['prefix' => 'bookingManager'], function () {
+    Route::group(['prefix' => 'bookingManager', 'middleware' => 'adminLogin'], function () {
         Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
         Route::post('list/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
-        Route::get('detailBooking/{id}', ['as' => 'bookingManager.show', 'uses' => 'BookingController@getEdit'])
-            ->middleware('customer');
+        Route::get('detailBooking/{id}', ['as' => 'bookingManager.show', 'uses' => 'BookingController@getEdit']);
         Route::post('detailBooking/{id}', ['as' => 'bookingManager.destroy', 'uses' => 'BookingController@postDB']);
     });
 });
@@ -115,3 +114,11 @@ Route::group(['prefix' => 'carts'], function () {
     Route::get('addCart/{id}', ['as' => 'carts.add', 'uses' => 'BookingController@addCart']);
     Route::get('delete/{id}', ['as' => 'carts.destroy', 'uses' => 'BookingController@getDelete']);
 });
+// Route group booking customer
+Route::group(['prefix' => 'bookingCustomer'], function () {
+    Route::get('list', ['as' => 'bookingCustomer.index', 'uses' => 'PageController@getList']);
+    Route::post('list/{id}', ['as' => 'bookingCustomer.destroy', 'uses' => 'PageController@postList']);
+    Route::get('detail/{id}', ['as' => 'bookingCustomer.detail', 'uses' => 'PageController@getDetail']);
+    Route::post('detail/{id}', ['as' => 'bookingCustomer.update', 'uses' => 'PageController@postDetail']);
+});
+

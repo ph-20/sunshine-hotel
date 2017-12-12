@@ -60,6 +60,7 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('carts.show') }}">Booking</a></li>
+                    <li><a href="{{ route('bookingCustomer.index') }}">Booked</a></li>
                 </ul>
             </nav>
             <!-- END / HEADER MENU -->

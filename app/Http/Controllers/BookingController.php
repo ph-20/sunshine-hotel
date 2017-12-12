@@ -147,7 +147,7 @@ class BookingController extends Controller
         }
         Cart::destroy();
         $this->postReview($booking);
-        return redirect()->route('carts.review');
+        return redirect()->route('bookingCustomer.index');
     }
 
     //Get Review

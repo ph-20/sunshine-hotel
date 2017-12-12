@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Booking Room
+            <h1 class="page-header">Services Room
                 <small>List</small>
             </h1>
         </div>
@@ -15,9 +15,9 @@
             <thead>
             <tr align="center">
                 <th>No</th>
-                <th>Name</th>
-                <th>Price VND</th>
-                <th>Status</th>
+                <th>User Name</th>
+                <th>Room Name</th>
+                <th>Booking Id</th>
                 <th>Amount</th>
                 <th>Image 1</th>
                 <th>Room Type</th>
@@ -29,13 +29,9 @@
             @foreach($bookRooms as $br)
                 <tr>
                     <td>{{$i++}}</td>
+                    <td>{{$br->bookings->users->last_name}}</td>
                     <td>{{$br->rooms->name}}</td>
-                    <td>{{number_format($br->rooms->price,0,",",".") }}</td>
-                    <td style="width: 70px;">
-                        @if($br->rooms->status == 2)
-                            {{'Đang ở'}}
-                        @endif
-                    </td>
+                    <td>{{$br->booking_id}}</td>
                     <td style="width: 70px">{{$br->rooms->amount_people}}</td>
                     <td>
                         <img width="100px" src="{{asset($br->rooms->image1) }}" alt="">

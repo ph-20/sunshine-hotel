@@ -57,7 +57,6 @@
                         @if($list->status == 1)
                             <form action="{{route('carts.update',[$list->id,'status'=>2])}}" method="POST">
                                 {{csrf_field()}}
-                                {{method_field('PUT')}}
                                 <button class="btn btn-primary" style="padding: 2px">
                                     Xác nhận
                                 </button>
@@ -65,7 +64,6 @@
                         @elseif($list->status == 2)
                             <form action="{{route('carts.update',[$list->id,'status'=>3])}}" method="POST">
                                 {{csrf_field()}}
-                                {{method_field('PUT')}}
                                 <button class="btn btn-primary" style="padding: 2px">
                                     Check-in
                                 </button>
@@ -73,7 +71,6 @@
                         @elseif($list->status == 3)
                             <form action="{{route('carts.update',[$list->id,'status'=>4])}}" method="POST">
                                 {{csrf_field()}}
-                                {{method_field('PUT')}}
                                 <button class="btn btn-success" style="padding: 2px">
                                     Check-out
                                 </button>
