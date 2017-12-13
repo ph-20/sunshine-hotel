@@ -58,7 +58,7 @@
                             <form action="{{route('bookingManager.update', [$list->id,'status'=>3])}}" method="post">
                                 {{ csrf_field() }}
                                 <i class="fa fa-pencil"></i>
-                                <a onclick="if(confirm ('Bạn muốn đổi trạng thái thành nhận phòng không?')){
+                                <a onclick="if(confirm ('Bạn muốn đổi trạng thái thành trả phòng không?')){
                                     this.parentElement.submit();}" href="javascript:void(0);">
                                     Trả phòng</a>
                             </form>
