@@ -75,8 +75,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function () {
         Route::delete('{promotion}', ['as' => 'promotions.destroy', 'uses' => 'PromotionController@delete']);
     });
     Route::group(['prefix' => 'bookingManager', 'middleware' => 'adminLogin'], function () {
-        Route::get('list', ['as' => 'carts.index', 'uses' => 'BookingController@getList']);
-        Route::post('list/{id}', ['as' => 'carts.update', 'uses' => 'BookingController@postEdit']);
+        Route::get('list', ['as' => 'bookingManager.index', 'uses' => 'BookingController@getList']);
+        Route::post('list/{id}', ['as' => 'bookingManager.update', 'uses' => 'BookingController@postList']);
         Route::get('detailBooking/{id}', ['as' => 'bookingManager.show', 'uses' => 'BookingController@getEdit']);
         Route::post('detailBooking/{id}', ['as' => 'bookingManager.destroy', 'uses' => 'BookingController@postDB']);
     });

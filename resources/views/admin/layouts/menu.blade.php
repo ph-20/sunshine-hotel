@@ -54,7 +54,7 @@
                             Room</a>
                     </li>
                     <li>
-                        <a href="{{ route('carts.index') }}" class="fa fa-list">&nbsp; All Booking</a>
+                        <a href="{{ route('bookingManager.index') }}" class="fa fa-list">&nbsp; All Booking</a>
                     </li>
                 </ul>
             </li>

@@ -138,43 +138,43 @@ class RoomController extends Controller
 
     public function detailallroom()
     {
-        $rooms = Room::all();
+        $rooms = Room::where('status', '!=', 1)->get();
         return view('hotel.seachroom.detailallroom', compact('rooms'));
     }
 
     public function seachroomfor2people()
     {
-        $rooms = Room::where('amount_people', '=', 2)->get();
+        $rooms = Room::where('amount_people', '=', 2)->where('status', '!=', 1)->get();
         return view('hotel.seachroom.seachfor2people', compact('rooms'));
     }
 
     public function seachroomfor4people()
     {
-        $rooms = Room::where('amount_people', '=', 4)->get();
+        $rooms = Room::where('amount_people', '=', 4)->where('status', '!=', 1)->get();
         return view('hotel.seachroom.seachfor4people', compact('rooms'));
     }
 
     public function seachroomfor6people()
     {
-        $rooms = Room::where('amount_people', '=', 6)->get();
+        $rooms = Room::where('amount_people', '=', 6)->where('status', '!=', 1)->get();
         return view('hotel.seachroom.seachfor6people', compact('rooms'));
     }
 
     public function seachroomtypevip()
     {
-        $rooms = Room::where('room_type_id', '=', 1)->get();
+        $rooms = Room::where('room_type_id', '=', 1)->where('status', '!=', 1)->get();
         return view('hotel.seachroom.seachforroomvip', compact('rooms'));
     }
 
     public function seachroomtypedeluxe()
     {
-        $rooms = Room::where('room_type_id', '=', 2)->get();
+        $rooms = Room::where('room_type_id', '=', 2)->where('status', '!=', 1)->get();
         return view('hotel.seachroom.seachforroomdeluxe', compact('rooms'));
     }
 
     public function seachroomtypefamily()
     {
-        $rooms = Room::where('room_type_id', '=', 3)->get();
+        $rooms = Room::where('room_type_id', '=', 3)->where('status', '!=', 1)->get();
         return view('hotel.seachroom.seachforroomfamily', compact('rooms'));
     }
 

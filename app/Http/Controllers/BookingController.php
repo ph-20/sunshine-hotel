@@ -17,53 +17,35 @@ class BookingController extends Controller
     // Danh sách quản lý đặt phòng của admin
     public function getList()
     {
-        $booking = Booking::where('status', '!=', 3)->where('status', '!=', 4)->get();
+        $booking = Booking::where('status', '!=', 3)->get();
         return view('admin.bookings.list', compact('booking'));
     }
 
-    // Update danh sách booking
-    public function postEdit(Request $request, $id)
+    // Update trạng thái phòng theo trạng thái booking
+    public function postList(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);
         $status = $request->status;
-        $listRoom = $booking->rooms;
+        $listroom = $booking->rooms;
         if ($status == 2) {
             $booking->status = $status;
-            foreach ($listRoom as $list) {
+            foreach ($listroom as $list) {
                 $list->status = 1;
                 $list->update();
             }
             $booking->update();
-            return redirect()->route('carts.index')->with('message', 'Xác nhận thành công');
+            return redirect()->route('bookingManager.index')
+                ->with('message', 'Xác nhận đơn đặt phòng thành công');
         }
         if ($status == 3) {
             $booking->status = $status;
-            $booking->check_in = date('Y-m-d h-i-s');
-            foreach ($listRoom as $list) {
-                $list->status = 1;
-                $list->update();
-            }
-            $booking->update();
-            return redirect()->back()->withSuccess('Đã Check-in Đơn Đặt Phòng Có Id : ' . $booking->id);
-        }
-        if ($status == 4) {
-            $booking->status = $status;
-            $booking->check_out = date('Y-m-d h-i-s');
-            foreach ($listRoom as $list) {
+            foreach ($listroom as $list) {
                 $list->status = 2;
                 $list->update();
             }
-            $booking->update();
-            return redirect()->back()->withSuccess('Đã Check-out Đơn Đặt Phòng Có Id : ' . $booking->id);
-        }
-        if ($status == 5) {
-            $booking->status = $status;
-            foreach ($listRoom as $list) {
-                $list->status = 2;
-                $list->update();
-            }
-            $booking->update();
-            return redirect()->back()->withSuccess('Đã Hủy Đơn Đặt Phòng Có Id :' . $booking->id);
+            $booking->delete();
+            return redirect()->route('bookingManager.index')
+                ->with('message', 'Trả phòng thành công');
         }
     }
 
@@ -147,7 +129,7 @@ class BookingController extends Controller
         }
         Cart::destroy();
         $this->postReview($booking);
-        return redirect()->route('bookingCustomer.index');
+        return redirect()->route('carts.review');
     }
 
     //Get Review

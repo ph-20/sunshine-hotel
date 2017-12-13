@@ -22,8 +22,6 @@
                 <th>Total Vnd</th>
                 <th>Code</th>
                 <th>Status</th>
-                <th>Detail</th>
-                <th>Action</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -45,47 +43,27 @@
                             Nhận phòng
                         @elseif($list->status == 3)
                             Trả phòng
-                        @elseif($list->status ==  4)
-                            Hủy phòng
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('bookingManager.show',$list->id)}}">Chi Tiết</a>
-                    </td>
-
-                    <td class="center">
                         @if($list->status == 1)
-                            <form action="{{route('carts.update',[$list->id,'status'=>2])}}" method="POST">
-                                {{csrf_field()}}
-                                <button class="btn btn-primary" style="padding: 2px">
-                                    Xác nhận
-                                </button>
+                            <form action="{{route('bookingManager.update', [$list->id,'status'=>2])}}" method="post">
+                                {{ csrf_field() }}
+                                <i class="fa fa-pencil"></i>
+                                <a onclick="if(confirm ('Bạn muốn đổi trạng thái thành nhận phòng không?')){
+                                    this.parentElement.submit();}" href="javascript:void(0);">
+                                    Nhận phòng</a>
                             </form>
                         @elseif($list->status == 2)
-                            <form action="{{route('carts.update',[$list->id,'status'=>3])}}" method="POST">
-                                {{csrf_field()}}
-                                <button class="btn btn-primary" style="padding: 2px">
-                                    Check-in
-                                </button>
-                            </form>
-                        @elseif($list->status == 3)
-                            <form action="{{route('carts.update',[$list->id,'status'=>4])}}" method="POST">
-                                {{csrf_field()}}
-                                <button class="btn btn-success" style="padding: 2px">
-                                    Check-out
-                                </button>
+                            <form action="{{route('bookingManager.update', [$list->id,'status'=>3])}}" method="post">
+                                {{ csrf_field() }}
+                                <i class="fa fa-pencil"></i>
+                                <a onclick="if(confirm ('Bạn muốn đổi trạng thái thành nhận phòng không?')){
+                                    this.parentElement.submit();}" href="javascript:void(0);">
+                                    Trả phòng</a>
                             </form>
                         @endif
                     </td>
-                    <td>
-                        <form action="{{route('carts.update',[$list->id,'status'=>5])}}" method="POST">
-                            {{csrf_field()}}
-                            {{method_field('PUT')}}
-                            <button class="btn " style="padding: 2px">
-                                <i class="fa fa-trash-o  fa-fw"></i></button>
-                        </form>
-                    </td>
-
                 </tr>
             @endforeach
             </tbody>
